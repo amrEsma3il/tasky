@@ -1,26 +1,39 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import 'src/core/utilits/services/api/api_consumer.dart';
 import 'src/core/utilits/services/api/app_interceptors.dart';
 import 'src/core/utilits/services/api/dio_consumer.dart';
+import 'src/features/auth/data/data_sources/remote_data_sources/auth_remote_data_source.dart';
+import 'src/features/auth/data/repo/auth_repo.dart';
+import 'src/features/auth/logic/login_cubit/login_cubit.dart';
 import 'src/features/onboarding/logic/onboarding_cubit/onboarding_cubit.dart';
 import 'src/features/splash/logic/splash_cubit/splash_cubit.dart';
-
 
 final serviceLocator = GetIt.instance;
 Future<void> init() async {
 //Bloc
-  serviceLocator.registerFactory<OnboardingCubit>(() =>OnboardingCubit() );
-   serviceLocator.registerFactory<SplashCubit>(() =>SplashCubit() );
-
-  //External
-  final sharedPreferences = await SharedPreferences.getInstance();
+final sharedPreferences = await SharedPreferences.getInstance();
   serviceLocator.registerLazySingleton(() => sharedPreferences);
+  serviceLocator.registerFactory<OnboardingCubit>(() => OnboardingCubit());
+  serviceLocator.registerFactory<SplashCubit>(() => SplashCubit());
+  serviceLocator.registerFactory<LoginCubit>(
+      () => LoginCubit(authRepo: serviceLocator()));
+
+//Repos
+  serviceLocator.registerLazySingleton(
+      () => AuthRepo(authRemoteDataSource: serviceLocator(),sharedPreferences: serviceLocator()));
+
+//DataSources
+
+  serviceLocator.registerLazySingleton(
+      () => AuthRemoteDataSource(dioConsumer: serviceLocator()));
+
+  serviceLocator.registerLazySingleton(
+      () => DioConsumer(client: serviceLocator(),appIntercepters: serviceLocator(),logInterceptor: serviceLocator()));
+  //External
+  
   serviceLocator.registerLazySingleton(() => Dio());
-  serviceLocator.registerLazySingleton<ApiConsumer>(
-      () => DioConsumer(client: serviceLocator()));
+
   serviceLocator.registerLazySingleton(() => LogInterceptor(
       responseBody: true,
       error: true,
@@ -28,6 +41,6 @@ Future<void> init() async {
       responseHeader: true,
       request: true,
       requestBody: true));
-  serviceLocator.registerLazySingleton(() => AppIntercepters(
-      client: serviceLocator()));
+  serviceLocator
+      .registerLazySingleton(() => AppIntercepters(client: serviceLocator(),sharedPreferences: serviceLocator()));
 }

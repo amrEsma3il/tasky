@@ -1,18 +1,18 @@
 
 
 class ErrorModel {
-  String? msg;
-  String? field;
+  String? message;
+  String? statusCode;
 
-  ErrorModel({this.msg, this.field});
+  ErrorModel({this.message, this.statusCode});
 
   ErrorModel.fromJson(Map<String, dynamic> json) {
-    msg = json['msg'];
-    field = json['field'];
+    message = json['message'];
+    statusCode = json['statusCode'];
   }
 
   Map<String, dynamic> toJson() => {
-        'msg': msg,
-        'field': field,
+        'msg': message,
+        'statusCode': statusCode,
       };
 }

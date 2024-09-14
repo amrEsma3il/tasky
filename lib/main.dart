@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'service_locator.dart' as di;
 import 'src/config/routing/app_routingconfig/app_router_configuration.dart';
+import 'src/features/auth/logic/login_cubit/login_cubit.dart';
 import 'src/features/onboarding/logic/onboarding_cubit/onboarding_cubit.dart';
 import 'src/features/splash/logic/splash_cubit/splash_cubit.dart';
 
@@ -28,9 +29,9 @@ class Tasky extends StatelessWidget {
         return MultiBlocProvider(
           providers:  [
 
-BlocProvider(create: (context)=>SplashCubit()),
-BlocProvider(create: (context)=>OnboardingCubit())
-
+BlocProvider(create: (context)=>di.serviceLocator<SplashCubit>()),
+BlocProvider(create: (context)=>di.serviceLocator<OnboardingCubit>()),
+BlocProvider(create: (context) => di.serviceLocator<LoginCubit>(),)
 
           ],
           child: GetMaterialApp(

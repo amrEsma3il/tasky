@@ -1,6 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, non_nullable_equals_parameter
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'network_exceptions.dart';
@@ -12,7 +12,7 @@ part of 'network_exceptions.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$NetworkExceptions {
@@ -20,6 +20,7 @@ mixin _$NetworkExceptions {
   TResult when<TResult extends Object?>({
     required TResult Function() requestCancelled,
     required TResult Function(String reason) unauthorizedRequest,
+    required TResult Function(String reason) forbidden,
     required TResult Function() badRequest,
     required TResult Function(String reason) notFound,
     required TResult Function(String reason) methodNotAllowed,
@@ -44,6 +45,7 @@ mixin _$NetworkExceptions {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? requestCancelled,
     TResult? Function(String reason)? unauthorizedRequest,
+    TResult? Function(String reason)? forbidden,
     TResult? Function()? badRequest,
     TResult? Function(String reason)? notFound,
     TResult? Function(String reason)? methodNotAllowed,
@@ -68,6 +70,7 @@ mixin _$NetworkExceptions {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? requestCancelled,
     TResult Function(String reason)? unauthorizedRequest,
+    TResult Function(String reason)? forbidden,
     TResult Function()? badRequest,
     TResult Function(String reason)? notFound,
     TResult Function(String reason)? methodNotAllowed,
@@ -93,6 +96,7 @@ mixin _$NetworkExceptions {
   TResult map<TResult extends Object?>({
     required TResult Function(RequestCancelled value) requestCancelled,
     required TResult Function(UnauthorizedRequest value) unauthorizedRequest,
+    required TResult Function(Forbidden value) forbidden,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(NotFound value) notFound,
     required TResult Function(MethodNotAllowed value) methodNotAllowed,
@@ -117,6 +121,7 @@ mixin _$NetworkExceptions {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RequestCancelled value)? requestCancelled,
     TResult? Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult? Function(Forbidden value)? forbidden,
     TResult? Function(BadRequest value)? badRequest,
     TResult? Function(NotFound value)? notFound,
     TResult? Function(MethodNotAllowed value)? methodNotAllowed,
@@ -141,6 +146,7 @@ mixin _$NetworkExceptions {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RequestCancelled value)? requestCancelled,
     TResult Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult Function(Forbidden value)? forbidden,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(NotFound value)? notFound,
     TResult Function(MethodNotAllowed value)? methodNotAllowed,
@@ -209,7 +215,7 @@ class _$RequestCancelledImpl implements RequestCancelled {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$RequestCancelledImpl);
   }
@@ -222,6 +228,7 @@ class _$RequestCancelledImpl implements RequestCancelled {
   TResult when<TResult extends Object?>({
     required TResult Function() requestCancelled,
     required TResult Function(String reason) unauthorizedRequest,
+    required TResult Function(String reason) forbidden,
     required TResult Function() badRequest,
     required TResult Function(String reason) notFound,
     required TResult Function(String reason) methodNotAllowed,
@@ -249,6 +256,7 @@ class _$RequestCancelledImpl implements RequestCancelled {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? requestCancelled,
     TResult? Function(String reason)? unauthorizedRequest,
+    TResult? Function(String reason)? forbidden,
     TResult? Function()? badRequest,
     TResult? Function(String reason)? notFound,
     TResult? Function(String reason)? methodNotAllowed,
@@ -276,6 +284,7 @@ class _$RequestCancelledImpl implements RequestCancelled {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? requestCancelled,
     TResult Function(String reason)? unauthorizedRequest,
+    TResult Function(String reason)? forbidden,
     TResult Function()? badRequest,
     TResult Function(String reason)? notFound,
     TResult Function(String reason)? methodNotAllowed,
@@ -307,6 +316,7 @@ class _$RequestCancelledImpl implements RequestCancelled {
   TResult map<TResult extends Object?>({
     required TResult Function(RequestCancelled value) requestCancelled,
     required TResult Function(UnauthorizedRequest value) unauthorizedRequest,
+    required TResult Function(Forbidden value) forbidden,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(NotFound value) notFound,
     required TResult Function(MethodNotAllowed value) methodNotAllowed,
@@ -334,6 +344,7 @@ class _$RequestCancelledImpl implements RequestCancelled {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RequestCancelled value)? requestCancelled,
     TResult? Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult? Function(Forbidden value)? forbidden,
     TResult? Function(BadRequest value)? badRequest,
     TResult? Function(NotFound value)? notFound,
     TResult? Function(MethodNotAllowed value)? methodNotAllowed,
@@ -361,6 +372,7 @@ class _$RequestCancelledImpl implements RequestCancelled {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RequestCancelled value)? requestCancelled,
     TResult Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult Function(Forbidden value)? forbidden,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(NotFound value)? notFound,
     TResult Function(MethodNotAllowed value)? methodNotAllowed,
@@ -437,7 +449,7 @@ class _$UnauthorizedRequestImpl implements UnauthorizedRequest {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UnauthorizedRequestImpl &&
@@ -459,6 +471,7 @@ class _$UnauthorizedRequestImpl implements UnauthorizedRequest {
   TResult when<TResult extends Object?>({
     required TResult Function() requestCancelled,
     required TResult Function(String reason) unauthorizedRequest,
+    required TResult Function(String reason) forbidden,
     required TResult Function() badRequest,
     required TResult Function(String reason) notFound,
     required TResult Function(String reason) methodNotAllowed,
@@ -486,6 +499,7 @@ class _$UnauthorizedRequestImpl implements UnauthorizedRequest {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? requestCancelled,
     TResult? Function(String reason)? unauthorizedRequest,
+    TResult? Function(String reason)? forbidden,
     TResult? Function()? badRequest,
     TResult? Function(String reason)? notFound,
     TResult? Function(String reason)? methodNotAllowed,
@@ -513,6 +527,7 @@ class _$UnauthorizedRequestImpl implements UnauthorizedRequest {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? requestCancelled,
     TResult Function(String reason)? unauthorizedRequest,
+    TResult Function(String reason)? forbidden,
     TResult Function()? badRequest,
     TResult Function(String reason)? notFound,
     TResult Function(String reason)? methodNotAllowed,
@@ -544,6 +559,7 @@ class _$UnauthorizedRequestImpl implements UnauthorizedRequest {
   TResult map<TResult extends Object?>({
     required TResult Function(RequestCancelled value) requestCancelled,
     required TResult Function(UnauthorizedRequest value) unauthorizedRequest,
+    required TResult Function(Forbidden value) forbidden,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(NotFound value) notFound,
     required TResult Function(MethodNotAllowed value) methodNotAllowed,
@@ -571,6 +587,7 @@ class _$UnauthorizedRequestImpl implements UnauthorizedRequest {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RequestCancelled value)? requestCancelled,
     TResult? Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult? Function(Forbidden value)? forbidden,
     TResult? Function(BadRequest value)? badRequest,
     TResult? Function(NotFound value)? notFound,
     TResult? Function(MethodNotAllowed value)? methodNotAllowed,
@@ -598,6 +615,7 @@ class _$UnauthorizedRequestImpl implements UnauthorizedRequest {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RequestCancelled value)? requestCancelled,
     TResult Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult Function(Forbidden value)? forbidden,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(NotFound value)? notFound,
     TResult Function(MethodNotAllowed value)? methodNotAllowed,
@@ -636,6 +654,253 @@ abstract class UnauthorizedRequest implements NetworkExceptions {
 }
 
 /// @nodoc
+abstract class _$$ForbiddenImplCopyWith<$Res> {
+  factory _$$ForbiddenImplCopyWith(
+          _$ForbiddenImpl value, $Res Function(_$ForbiddenImpl) then) =
+      __$$ForbiddenImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String reason});
+}
+
+/// @nodoc
+class __$$ForbiddenImplCopyWithImpl<$Res>
+    extends _$NetworkExceptionsCopyWithImpl<$Res, _$ForbiddenImpl>
+    implements _$$ForbiddenImplCopyWith<$Res> {
+  __$$ForbiddenImplCopyWithImpl(
+      _$ForbiddenImpl _value, $Res Function(_$ForbiddenImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? reason = null,
+  }) {
+    return _then(_$ForbiddenImpl(
+      null == reason
+          ? _value.reason
+          : reason // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ForbiddenImpl implements Forbidden {
+  const _$ForbiddenImpl(this.reason);
+
+  @override
+  final String reason;
+
+  @override
+  String toString() {
+    return 'NetworkExceptions.forbidden(reason: $reason)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ForbiddenImpl &&
+            (identical(other.reason, reason) || other.reason == reason));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, reason);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ForbiddenImplCopyWith<_$ForbiddenImpl> get copyWith =>
+      __$$ForbiddenImplCopyWithImpl<_$ForbiddenImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() requestCancelled,
+    required TResult Function(String reason) unauthorizedRequest,
+    required TResult Function(String reason) forbidden,
+    required TResult Function() badRequest,
+    required TResult Function(String reason) notFound,
+    required TResult Function(String reason) methodNotAllowed,
+    required TResult Function() notAcceptable,
+    required TResult Function() requestTimeout,
+    required TResult Function() sendTimeout,
+    required TResult Function(String reason) unprocessableEntity,
+    required TResult Function(String reason) conflict,
+    required TResult Function() internalServerError,
+    required TResult Function() notImplemented,
+    required TResult Function() serviceUnavailable,
+    required TResult Function() noInternetConnection,
+    required TResult Function() formatException,
+    required TResult Function() unableToProcess,
+    required TResult Function(String error) defaultError,
+    required TResult Function() unexpectedError,
+    required TResult Function() badCertificateError,
+    required TResult Function() unknownError,
+  }) {
+    return forbidden(reason);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? requestCancelled,
+    TResult? Function(String reason)? unauthorizedRequest,
+    TResult? Function(String reason)? forbidden,
+    TResult? Function()? badRequest,
+    TResult? Function(String reason)? notFound,
+    TResult? Function(String reason)? methodNotAllowed,
+    TResult? Function()? notAcceptable,
+    TResult? Function()? requestTimeout,
+    TResult? Function()? sendTimeout,
+    TResult? Function(String reason)? unprocessableEntity,
+    TResult? Function(String reason)? conflict,
+    TResult? Function()? internalServerError,
+    TResult? Function()? notImplemented,
+    TResult? Function()? serviceUnavailable,
+    TResult? Function()? noInternetConnection,
+    TResult? Function()? formatException,
+    TResult? Function()? unableToProcess,
+    TResult? Function(String error)? defaultError,
+    TResult? Function()? unexpectedError,
+    TResult? Function()? badCertificateError,
+    TResult? Function()? unknownError,
+  }) {
+    return forbidden?.call(reason);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? requestCancelled,
+    TResult Function(String reason)? unauthorizedRequest,
+    TResult Function(String reason)? forbidden,
+    TResult Function()? badRequest,
+    TResult Function(String reason)? notFound,
+    TResult Function(String reason)? methodNotAllowed,
+    TResult Function()? notAcceptable,
+    TResult Function()? requestTimeout,
+    TResult Function()? sendTimeout,
+    TResult Function(String reason)? unprocessableEntity,
+    TResult Function(String reason)? conflict,
+    TResult Function()? internalServerError,
+    TResult Function()? notImplemented,
+    TResult Function()? serviceUnavailable,
+    TResult Function()? noInternetConnection,
+    TResult Function()? formatException,
+    TResult Function()? unableToProcess,
+    TResult Function(String error)? defaultError,
+    TResult Function()? unexpectedError,
+    TResult Function()? badCertificateError,
+    TResult Function()? unknownError,
+    required TResult orElse(),
+  }) {
+    if (forbidden != null) {
+      return forbidden(reason);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(RequestCancelled value) requestCancelled,
+    required TResult Function(UnauthorizedRequest value) unauthorizedRequest,
+    required TResult Function(Forbidden value) forbidden,
+    required TResult Function(BadRequest value) badRequest,
+    required TResult Function(NotFound value) notFound,
+    required TResult Function(MethodNotAllowed value) methodNotAllowed,
+    required TResult Function(NotAcceptable value) notAcceptable,
+    required TResult Function(RequestTimeout value) requestTimeout,
+    required TResult Function(SendTimeout value) sendTimeout,
+    required TResult Function(UnprocessableEntity value) unprocessableEntity,
+    required TResult Function(Conflict value) conflict,
+    required TResult Function(InternalServerError value) internalServerError,
+    required TResult Function(NotImplemented value) notImplemented,
+    required TResult Function(ServiceUnavailable value) serviceUnavailable,
+    required TResult Function(NoInternetConnection value) noInternetConnection,
+    required TResult Function(FormatException value) formatException,
+    required TResult Function(UnableToProcess value) unableToProcess,
+    required TResult Function(DefaultError value) defaultError,
+    required TResult Function(UnexpectedError value) unexpectedError,
+    required TResult Function(BadCertificateError value) badCertificateError,
+    required TResult Function(UnknownError value) unknownError,
+  }) {
+    return forbidden(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(RequestCancelled value)? requestCancelled,
+    TResult? Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult? Function(Forbidden value)? forbidden,
+    TResult? Function(BadRequest value)? badRequest,
+    TResult? Function(NotFound value)? notFound,
+    TResult? Function(MethodNotAllowed value)? methodNotAllowed,
+    TResult? Function(NotAcceptable value)? notAcceptable,
+    TResult? Function(RequestTimeout value)? requestTimeout,
+    TResult? Function(SendTimeout value)? sendTimeout,
+    TResult? Function(UnprocessableEntity value)? unprocessableEntity,
+    TResult? Function(Conflict value)? conflict,
+    TResult? Function(InternalServerError value)? internalServerError,
+    TResult? Function(NotImplemented value)? notImplemented,
+    TResult? Function(ServiceUnavailable value)? serviceUnavailable,
+    TResult? Function(NoInternetConnection value)? noInternetConnection,
+    TResult? Function(FormatException value)? formatException,
+    TResult? Function(UnableToProcess value)? unableToProcess,
+    TResult? Function(DefaultError value)? defaultError,
+    TResult? Function(UnexpectedError value)? unexpectedError,
+    TResult? Function(BadCertificateError value)? badCertificateError,
+    TResult? Function(UnknownError value)? unknownError,
+  }) {
+    return forbidden?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(RequestCancelled value)? requestCancelled,
+    TResult Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult Function(Forbidden value)? forbidden,
+    TResult Function(BadRequest value)? badRequest,
+    TResult Function(NotFound value)? notFound,
+    TResult Function(MethodNotAllowed value)? methodNotAllowed,
+    TResult Function(NotAcceptable value)? notAcceptable,
+    TResult Function(RequestTimeout value)? requestTimeout,
+    TResult Function(SendTimeout value)? sendTimeout,
+    TResult Function(UnprocessableEntity value)? unprocessableEntity,
+    TResult Function(Conflict value)? conflict,
+    TResult Function(InternalServerError value)? internalServerError,
+    TResult Function(NotImplemented value)? notImplemented,
+    TResult Function(ServiceUnavailable value)? serviceUnavailable,
+    TResult Function(NoInternetConnection value)? noInternetConnection,
+    TResult Function(FormatException value)? formatException,
+    TResult Function(UnableToProcess value)? unableToProcess,
+    TResult Function(DefaultError value)? defaultError,
+    TResult Function(UnexpectedError value)? unexpectedError,
+    TResult Function(BadCertificateError value)? badCertificateError,
+    TResult Function(UnknownError value)? unknownError,
+    required TResult orElse(),
+  }) {
+    if (forbidden != null) {
+      return forbidden(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Forbidden implements NetworkExceptions {
+  const factory Forbidden(final String reason) = _$ForbiddenImpl;
+
+  String get reason;
+  @JsonKey(ignore: true)
+  _$$ForbiddenImplCopyWith<_$ForbiddenImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 abstract class _$$BadRequestImplCopyWith<$Res> {
   factory _$$BadRequestImplCopyWith(
           _$BadRequestImpl value, $Res Function(_$BadRequestImpl) then) =
@@ -662,7 +927,7 @@ class _$BadRequestImpl implements BadRequest {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$BadRequestImpl);
   }
@@ -675,6 +940,7 @@ class _$BadRequestImpl implements BadRequest {
   TResult when<TResult extends Object?>({
     required TResult Function() requestCancelled,
     required TResult Function(String reason) unauthorizedRequest,
+    required TResult Function(String reason) forbidden,
     required TResult Function() badRequest,
     required TResult Function(String reason) notFound,
     required TResult Function(String reason) methodNotAllowed,
@@ -702,6 +968,7 @@ class _$BadRequestImpl implements BadRequest {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? requestCancelled,
     TResult? Function(String reason)? unauthorizedRequest,
+    TResult? Function(String reason)? forbidden,
     TResult? Function()? badRequest,
     TResult? Function(String reason)? notFound,
     TResult? Function(String reason)? methodNotAllowed,
@@ -729,6 +996,7 @@ class _$BadRequestImpl implements BadRequest {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? requestCancelled,
     TResult Function(String reason)? unauthorizedRequest,
+    TResult Function(String reason)? forbidden,
     TResult Function()? badRequest,
     TResult Function(String reason)? notFound,
     TResult Function(String reason)? methodNotAllowed,
@@ -760,6 +1028,7 @@ class _$BadRequestImpl implements BadRequest {
   TResult map<TResult extends Object?>({
     required TResult Function(RequestCancelled value) requestCancelled,
     required TResult Function(UnauthorizedRequest value) unauthorizedRequest,
+    required TResult Function(Forbidden value) forbidden,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(NotFound value) notFound,
     required TResult Function(MethodNotAllowed value) methodNotAllowed,
@@ -787,6 +1056,7 @@ class _$BadRequestImpl implements BadRequest {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RequestCancelled value)? requestCancelled,
     TResult? Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult? Function(Forbidden value)? forbidden,
     TResult? Function(BadRequest value)? badRequest,
     TResult? Function(NotFound value)? notFound,
     TResult? Function(MethodNotAllowed value)? methodNotAllowed,
@@ -814,6 +1084,7 @@ class _$BadRequestImpl implements BadRequest {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RequestCancelled value)? requestCancelled,
     TResult Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult Function(Forbidden value)? forbidden,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(NotFound value)? notFound,
     TResult Function(MethodNotAllowed value)? methodNotAllowed,
@@ -890,7 +1161,7 @@ class _$NotFoundImpl implements NotFound {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NotFoundImpl &&
@@ -911,6 +1182,7 @@ class _$NotFoundImpl implements NotFound {
   TResult when<TResult extends Object?>({
     required TResult Function() requestCancelled,
     required TResult Function(String reason) unauthorizedRequest,
+    required TResult Function(String reason) forbidden,
     required TResult Function() badRequest,
     required TResult Function(String reason) notFound,
     required TResult Function(String reason) methodNotAllowed,
@@ -938,6 +1210,7 @@ class _$NotFoundImpl implements NotFound {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? requestCancelled,
     TResult? Function(String reason)? unauthorizedRequest,
+    TResult? Function(String reason)? forbidden,
     TResult? Function()? badRequest,
     TResult? Function(String reason)? notFound,
     TResult? Function(String reason)? methodNotAllowed,
@@ -965,6 +1238,7 @@ class _$NotFoundImpl implements NotFound {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? requestCancelled,
     TResult Function(String reason)? unauthorizedRequest,
+    TResult Function(String reason)? forbidden,
     TResult Function()? badRequest,
     TResult Function(String reason)? notFound,
     TResult Function(String reason)? methodNotAllowed,
@@ -996,6 +1270,7 @@ class _$NotFoundImpl implements NotFound {
   TResult map<TResult extends Object?>({
     required TResult Function(RequestCancelled value) requestCancelled,
     required TResult Function(UnauthorizedRequest value) unauthorizedRequest,
+    required TResult Function(Forbidden value) forbidden,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(NotFound value) notFound,
     required TResult Function(MethodNotAllowed value) methodNotAllowed,
@@ -1023,6 +1298,7 @@ class _$NotFoundImpl implements NotFound {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RequestCancelled value)? requestCancelled,
     TResult? Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult? Function(Forbidden value)? forbidden,
     TResult? Function(BadRequest value)? badRequest,
     TResult? Function(NotFound value)? notFound,
     TResult? Function(MethodNotAllowed value)? methodNotAllowed,
@@ -1050,6 +1326,7 @@ class _$NotFoundImpl implements NotFound {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RequestCancelled value)? requestCancelled,
     TResult Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult Function(Forbidden value)? forbidden,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(NotFound value)? notFound,
     TResult Function(MethodNotAllowed value)? methodNotAllowed,
@@ -1131,7 +1408,7 @@ class _$MethodNotAllowedImpl implements MethodNotAllowed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MethodNotAllowedImpl &&
@@ -1153,6 +1430,7 @@ class _$MethodNotAllowedImpl implements MethodNotAllowed {
   TResult when<TResult extends Object?>({
     required TResult Function() requestCancelled,
     required TResult Function(String reason) unauthorizedRequest,
+    required TResult Function(String reason) forbidden,
     required TResult Function() badRequest,
     required TResult Function(String reason) notFound,
     required TResult Function(String reason) methodNotAllowed,
@@ -1180,6 +1458,7 @@ class _$MethodNotAllowedImpl implements MethodNotAllowed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? requestCancelled,
     TResult? Function(String reason)? unauthorizedRequest,
+    TResult? Function(String reason)? forbidden,
     TResult? Function()? badRequest,
     TResult? Function(String reason)? notFound,
     TResult? Function(String reason)? methodNotAllowed,
@@ -1207,6 +1486,7 @@ class _$MethodNotAllowedImpl implements MethodNotAllowed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? requestCancelled,
     TResult Function(String reason)? unauthorizedRequest,
+    TResult Function(String reason)? forbidden,
     TResult Function()? badRequest,
     TResult Function(String reason)? notFound,
     TResult Function(String reason)? methodNotAllowed,
@@ -1238,6 +1518,7 @@ class _$MethodNotAllowedImpl implements MethodNotAllowed {
   TResult map<TResult extends Object?>({
     required TResult Function(RequestCancelled value) requestCancelled,
     required TResult Function(UnauthorizedRequest value) unauthorizedRequest,
+    required TResult Function(Forbidden value) forbidden,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(NotFound value) notFound,
     required TResult Function(MethodNotAllowed value) methodNotAllowed,
@@ -1265,6 +1546,7 @@ class _$MethodNotAllowedImpl implements MethodNotAllowed {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RequestCancelled value)? requestCancelled,
     TResult? Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult? Function(Forbidden value)? forbidden,
     TResult? Function(BadRequest value)? badRequest,
     TResult? Function(NotFound value)? notFound,
     TResult? Function(MethodNotAllowed value)? methodNotAllowed,
@@ -1292,6 +1574,7 @@ class _$MethodNotAllowedImpl implements MethodNotAllowed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RequestCancelled value)? requestCancelled,
     TResult Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult Function(Forbidden value)? forbidden,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(NotFound value)? notFound,
     TResult Function(MethodNotAllowed value)? methodNotAllowed,
@@ -1355,7 +1638,7 @@ class _$NotAcceptableImpl implements NotAcceptable {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$NotAcceptableImpl);
   }
@@ -1368,6 +1651,7 @@ class _$NotAcceptableImpl implements NotAcceptable {
   TResult when<TResult extends Object?>({
     required TResult Function() requestCancelled,
     required TResult Function(String reason) unauthorizedRequest,
+    required TResult Function(String reason) forbidden,
     required TResult Function() badRequest,
     required TResult Function(String reason) notFound,
     required TResult Function(String reason) methodNotAllowed,
@@ -1395,6 +1679,7 @@ class _$NotAcceptableImpl implements NotAcceptable {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? requestCancelled,
     TResult? Function(String reason)? unauthorizedRequest,
+    TResult? Function(String reason)? forbidden,
     TResult? Function()? badRequest,
     TResult? Function(String reason)? notFound,
     TResult? Function(String reason)? methodNotAllowed,
@@ -1422,6 +1707,7 @@ class _$NotAcceptableImpl implements NotAcceptable {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? requestCancelled,
     TResult Function(String reason)? unauthorizedRequest,
+    TResult Function(String reason)? forbidden,
     TResult Function()? badRequest,
     TResult Function(String reason)? notFound,
     TResult Function(String reason)? methodNotAllowed,
@@ -1453,6 +1739,7 @@ class _$NotAcceptableImpl implements NotAcceptable {
   TResult map<TResult extends Object?>({
     required TResult Function(RequestCancelled value) requestCancelled,
     required TResult Function(UnauthorizedRequest value) unauthorizedRequest,
+    required TResult Function(Forbidden value) forbidden,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(NotFound value) notFound,
     required TResult Function(MethodNotAllowed value) methodNotAllowed,
@@ -1480,6 +1767,7 @@ class _$NotAcceptableImpl implements NotAcceptable {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RequestCancelled value)? requestCancelled,
     TResult? Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult? Function(Forbidden value)? forbidden,
     TResult? Function(BadRequest value)? badRequest,
     TResult? Function(NotFound value)? notFound,
     TResult? Function(MethodNotAllowed value)? methodNotAllowed,
@@ -1507,6 +1795,7 @@ class _$NotAcceptableImpl implements NotAcceptable {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RequestCancelled value)? requestCancelled,
     TResult Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult Function(Forbidden value)? forbidden,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(NotFound value)? notFound,
     TResult Function(MethodNotAllowed value)? methodNotAllowed,
@@ -1565,7 +1854,7 @@ class _$RequestTimeoutImpl implements RequestTimeout {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$RequestTimeoutImpl);
   }
@@ -1578,6 +1867,7 @@ class _$RequestTimeoutImpl implements RequestTimeout {
   TResult when<TResult extends Object?>({
     required TResult Function() requestCancelled,
     required TResult Function(String reason) unauthorizedRequest,
+    required TResult Function(String reason) forbidden,
     required TResult Function() badRequest,
     required TResult Function(String reason) notFound,
     required TResult Function(String reason) methodNotAllowed,
@@ -1605,6 +1895,7 @@ class _$RequestTimeoutImpl implements RequestTimeout {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? requestCancelled,
     TResult? Function(String reason)? unauthorizedRequest,
+    TResult? Function(String reason)? forbidden,
     TResult? Function()? badRequest,
     TResult? Function(String reason)? notFound,
     TResult? Function(String reason)? methodNotAllowed,
@@ -1632,6 +1923,7 @@ class _$RequestTimeoutImpl implements RequestTimeout {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? requestCancelled,
     TResult Function(String reason)? unauthorizedRequest,
+    TResult Function(String reason)? forbidden,
     TResult Function()? badRequest,
     TResult Function(String reason)? notFound,
     TResult Function(String reason)? methodNotAllowed,
@@ -1663,6 +1955,7 @@ class _$RequestTimeoutImpl implements RequestTimeout {
   TResult map<TResult extends Object?>({
     required TResult Function(RequestCancelled value) requestCancelled,
     required TResult Function(UnauthorizedRequest value) unauthorizedRequest,
+    required TResult Function(Forbidden value) forbidden,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(NotFound value) notFound,
     required TResult Function(MethodNotAllowed value) methodNotAllowed,
@@ -1690,6 +1983,7 @@ class _$RequestTimeoutImpl implements RequestTimeout {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RequestCancelled value)? requestCancelled,
     TResult? Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult? Function(Forbidden value)? forbidden,
     TResult? Function(BadRequest value)? badRequest,
     TResult? Function(NotFound value)? notFound,
     TResult? Function(MethodNotAllowed value)? methodNotAllowed,
@@ -1717,6 +2011,7 @@ class _$RequestTimeoutImpl implements RequestTimeout {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RequestCancelled value)? requestCancelled,
     TResult Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult Function(Forbidden value)? forbidden,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(NotFound value)? notFound,
     TResult Function(MethodNotAllowed value)? methodNotAllowed,
@@ -1775,7 +2070,7 @@ class _$SendTimeoutImpl implements SendTimeout {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$SendTimeoutImpl);
   }
@@ -1788,6 +2083,7 @@ class _$SendTimeoutImpl implements SendTimeout {
   TResult when<TResult extends Object?>({
     required TResult Function() requestCancelled,
     required TResult Function(String reason) unauthorizedRequest,
+    required TResult Function(String reason) forbidden,
     required TResult Function() badRequest,
     required TResult Function(String reason) notFound,
     required TResult Function(String reason) methodNotAllowed,
@@ -1815,6 +2111,7 @@ class _$SendTimeoutImpl implements SendTimeout {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? requestCancelled,
     TResult? Function(String reason)? unauthorizedRequest,
+    TResult? Function(String reason)? forbidden,
     TResult? Function()? badRequest,
     TResult? Function(String reason)? notFound,
     TResult? Function(String reason)? methodNotAllowed,
@@ -1842,6 +2139,7 @@ class _$SendTimeoutImpl implements SendTimeout {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? requestCancelled,
     TResult Function(String reason)? unauthorizedRequest,
+    TResult Function(String reason)? forbidden,
     TResult Function()? badRequest,
     TResult Function(String reason)? notFound,
     TResult Function(String reason)? methodNotAllowed,
@@ -1873,6 +2171,7 @@ class _$SendTimeoutImpl implements SendTimeout {
   TResult map<TResult extends Object?>({
     required TResult Function(RequestCancelled value) requestCancelled,
     required TResult Function(UnauthorizedRequest value) unauthorizedRequest,
+    required TResult Function(Forbidden value) forbidden,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(NotFound value) notFound,
     required TResult Function(MethodNotAllowed value) methodNotAllowed,
@@ -1900,6 +2199,7 @@ class _$SendTimeoutImpl implements SendTimeout {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RequestCancelled value)? requestCancelled,
     TResult? Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult? Function(Forbidden value)? forbidden,
     TResult? Function(BadRequest value)? badRequest,
     TResult? Function(NotFound value)? notFound,
     TResult? Function(MethodNotAllowed value)? methodNotAllowed,
@@ -1927,6 +2227,7 @@ class _$SendTimeoutImpl implements SendTimeout {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RequestCancelled value)? requestCancelled,
     TResult Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult Function(Forbidden value)? forbidden,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(NotFound value)? notFound,
     TResult Function(MethodNotAllowed value)? methodNotAllowed,
@@ -2003,7 +2304,7 @@ class _$UnprocessableEntityImpl implements UnprocessableEntity {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UnprocessableEntityImpl &&
@@ -2025,6 +2326,7 @@ class _$UnprocessableEntityImpl implements UnprocessableEntity {
   TResult when<TResult extends Object?>({
     required TResult Function() requestCancelled,
     required TResult Function(String reason) unauthorizedRequest,
+    required TResult Function(String reason) forbidden,
     required TResult Function() badRequest,
     required TResult Function(String reason) notFound,
     required TResult Function(String reason) methodNotAllowed,
@@ -2052,6 +2354,7 @@ class _$UnprocessableEntityImpl implements UnprocessableEntity {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? requestCancelled,
     TResult? Function(String reason)? unauthorizedRequest,
+    TResult? Function(String reason)? forbidden,
     TResult? Function()? badRequest,
     TResult? Function(String reason)? notFound,
     TResult? Function(String reason)? methodNotAllowed,
@@ -2079,6 +2382,7 @@ class _$UnprocessableEntityImpl implements UnprocessableEntity {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? requestCancelled,
     TResult Function(String reason)? unauthorizedRequest,
+    TResult Function(String reason)? forbidden,
     TResult Function()? badRequest,
     TResult Function(String reason)? notFound,
     TResult Function(String reason)? methodNotAllowed,
@@ -2110,6 +2414,7 @@ class _$UnprocessableEntityImpl implements UnprocessableEntity {
   TResult map<TResult extends Object?>({
     required TResult Function(RequestCancelled value) requestCancelled,
     required TResult Function(UnauthorizedRequest value) unauthorizedRequest,
+    required TResult Function(Forbidden value) forbidden,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(NotFound value) notFound,
     required TResult Function(MethodNotAllowed value) methodNotAllowed,
@@ -2137,6 +2442,7 @@ class _$UnprocessableEntityImpl implements UnprocessableEntity {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RequestCancelled value)? requestCancelled,
     TResult? Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult? Function(Forbidden value)? forbidden,
     TResult? Function(BadRequest value)? badRequest,
     TResult? Function(NotFound value)? notFound,
     TResult? Function(MethodNotAllowed value)? methodNotAllowed,
@@ -2164,6 +2470,7 @@ class _$UnprocessableEntityImpl implements UnprocessableEntity {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RequestCancelled value)? requestCancelled,
     TResult Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult Function(Forbidden value)? forbidden,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(NotFound value)? notFound,
     TResult Function(MethodNotAllowed value)? methodNotAllowed,
@@ -2246,7 +2553,7 @@ class _$ConflictImpl implements Conflict {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ConflictImpl &&
@@ -2267,6 +2574,7 @@ class _$ConflictImpl implements Conflict {
   TResult when<TResult extends Object?>({
     required TResult Function() requestCancelled,
     required TResult Function(String reason) unauthorizedRequest,
+    required TResult Function(String reason) forbidden,
     required TResult Function() badRequest,
     required TResult Function(String reason) notFound,
     required TResult Function(String reason) methodNotAllowed,
@@ -2294,6 +2602,7 @@ class _$ConflictImpl implements Conflict {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? requestCancelled,
     TResult? Function(String reason)? unauthorizedRequest,
+    TResult? Function(String reason)? forbidden,
     TResult? Function()? badRequest,
     TResult? Function(String reason)? notFound,
     TResult? Function(String reason)? methodNotAllowed,
@@ -2321,6 +2630,7 @@ class _$ConflictImpl implements Conflict {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? requestCancelled,
     TResult Function(String reason)? unauthorizedRequest,
+    TResult Function(String reason)? forbidden,
     TResult Function()? badRequest,
     TResult Function(String reason)? notFound,
     TResult Function(String reason)? methodNotAllowed,
@@ -2352,6 +2662,7 @@ class _$ConflictImpl implements Conflict {
   TResult map<TResult extends Object?>({
     required TResult Function(RequestCancelled value) requestCancelled,
     required TResult Function(UnauthorizedRequest value) unauthorizedRequest,
+    required TResult Function(Forbidden value) forbidden,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(NotFound value) notFound,
     required TResult Function(MethodNotAllowed value) methodNotAllowed,
@@ -2379,6 +2690,7 @@ class _$ConflictImpl implements Conflict {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RequestCancelled value)? requestCancelled,
     TResult? Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult? Function(Forbidden value)? forbidden,
     TResult? Function(BadRequest value)? badRequest,
     TResult? Function(NotFound value)? notFound,
     TResult? Function(MethodNotAllowed value)? methodNotAllowed,
@@ -2406,6 +2718,7 @@ class _$ConflictImpl implements Conflict {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RequestCancelled value)? requestCancelled,
     TResult Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult Function(Forbidden value)? forbidden,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(NotFound value)? notFound,
     TResult Function(MethodNotAllowed value)? methodNotAllowed,
@@ -2469,7 +2782,7 @@ class _$InternalServerErrorImpl implements InternalServerError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InternalServerErrorImpl);
@@ -2483,6 +2796,7 @@ class _$InternalServerErrorImpl implements InternalServerError {
   TResult when<TResult extends Object?>({
     required TResult Function() requestCancelled,
     required TResult Function(String reason) unauthorizedRequest,
+    required TResult Function(String reason) forbidden,
     required TResult Function() badRequest,
     required TResult Function(String reason) notFound,
     required TResult Function(String reason) methodNotAllowed,
@@ -2510,6 +2824,7 @@ class _$InternalServerErrorImpl implements InternalServerError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? requestCancelled,
     TResult? Function(String reason)? unauthorizedRequest,
+    TResult? Function(String reason)? forbidden,
     TResult? Function()? badRequest,
     TResult? Function(String reason)? notFound,
     TResult? Function(String reason)? methodNotAllowed,
@@ -2537,6 +2852,7 @@ class _$InternalServerErrorImpl implements InternalServerError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? requestCancelled,
     TResult Function(String reason)? unauthorizedRequest,
+    TResult Function(String reason)? forbidden,
     TResult Function()? badRequest,
     TResult Function(String reason)? notFound,
     TResult Function(String reason)? methodNotAllowed,
@@ -2568,6 +2884,7 @@ class _$InternalServerErrorImpl implements InternalServerError {
   TResult map<TResult extends Object?>({
     required TResult Function(RequestCancelled value) requestCancelled,
     required TResult Function(UnauthorizedRequest value) unauthorizedRequest,
+    required TResult Function(Forbidden value) forbidden,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(NotFound value) notFound,
     required TResult Function(MethodNotAllowed value) methodNotAllowed,
@@ -2595,6 +2912,7 @@ class _$InternalServerErrorImpl implements InternalServerError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RequestCancelled value)? requestCancelled,
     TResult? Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult? Function(Forbidden value)? forbidden,
     TResult? Function(BadRequest value)? badRequest,
     TResult? Function(NotFound value)? notFound,
     TResult? Function(MethodNotAllowed value)? methodNotAllowed,
@@ -2622,6 +2940,7 @@ class _$InternalServerErrorImpl implements InternalServerError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RequestCancelled value)? requestCancelled,
     TResult Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult Function(Forbidden value)? forbidden,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(NotFound value)? notFound,
     TResult Function(MethodNotAllowed value)? methodNotAllowed,
@@ -2680,7 +2999,7 @@ class _$NotImplementedImpl implements NotImplemented {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$NotImplementedImpl);
   }
@@ -2693,6 +3012,7 @@ class _$NotImplementedImpl implements NotImplemented {
   TResult when<TResult extends Object?>({
     required TResult Function() requestCancelled,
     required TResult Function(String reason) unauthorizedRequest,
+    required TResult Function(String reason) forbidden,
     required TResult Function() badRequest,
     required TResult Function(String reason) notFound,
     required TResult Function(String reason) methodNotAllowed,
@@ -2720,6 +3040,7 @@ class _$NotImplementedImpl implements NotImplemented {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? requestCancelled,
     TResult? Function(String reason)? unauthorizedRequest,
+    TResult? Function(String reason)? forbidden,
     TResult? Function()? badRequest,
     TResult? Function(String reason)? notFound,
     TResult? Function(String reason)? methodNotAllowed,
@@ -2747,6 +3068,7 @@ class _$NotImplementedImpl implements NotImplemented {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? requestCancelled,
     TResult Function(String reason)? unauthorizedRequest,
+    TResult Function(String reason)? forbidden,
     TResult Function()? badRequest,
     TResult Function(String reason)? notFound,
     TResult Function(String reason)? methodNotAllowed,
@@ -2778,6 +3100,7 @@ class _$NotImplementedImpl implements NotImplemented {
   TResult map<TResult extends Object?>({
     required TResult Function(RequestCancelled value) requestCancelled,
     required TResult Function(UnauthorizedRequest value) unauthorizedRequest,
+    required TResult Function(Forbidden value) forbidden,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(NotFound value) notFound,
     required TResult Function(MethodNotAllowed value) methodNotAllowed,
@@ -2805,6 +3128,7 @@ class _$NotImplementedImpl implements NotImplemented {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RequestCancelled value)? requestCancelled,
     TResult? Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult? Function(Forbidden value)? forbidden,
     TResult? Function(BadRequest value)? badRequest,
     TResult? Function(NotFound value)? notFound,
     TResult? Function(MethodNotAllowed value)? methodNotAllowed,
@@ -2832,6 +3156,7 @@ class _$NotImplementedImpl implements NotImplemented {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RequestCancelled value)? requestCancelled,
     TResult Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult Function(Forbidden value)? forbidden,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(NotFound value)? notFound,
     TResult Function(MethodNotAllowed value)? methodNotAllowed,
@@ -2890,7 +3215,7 @@ class _$ServiceUnavailableImpl implements ServiceUnavailable {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$ServiceUnavailableImpl);
   }
@@ -2903,6 +3228,7 @@ class _$ServiceUnavailableImpl implements ServiceUnavailable {
   TResult when<TResult extends Object?>({
     required TResult Function() requestCancelled,
     required TResult Function(String reason) unauthorizedRequest,
+    required TResult Function(String reason) forbidden,
     required TResult Function() badRequest,
     required TResult Function(String reason) notFound,
     required TResult Function(String reason) methodNotAllowed,
@@ -2930,6 +3256,7 @@ class _$ServiceUnavailableImpl implements ServiceUnavailable {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? requestCancelled,
     TResult? Function(String reason)? unauthorizedRequest,
+    TResult? Function(String reason)? forbidden,
     TResult? Function()? badRequest,
     TResult? Function(String reason)? notFound,
     TResult? Function(String reason)? methodNotAllowed,
@@ -2957,6 +3284,7 @@ class _$ServiceUnavailableImpl implements ServiceUnavailable {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? requestCancelled,
     TResult Function(String reason)? unauthorizedRequest,
+    TResult Function(String reason)? forbidden,
     TResult Function()? badRequest,
     TResult Function(String reason)? notFound,
     TResult Function(String reason)? methodNotAllowed,
@@ -2988,6 +3316,7 @@ class _$ServiceUnavailableImpl implements ServiceUnavailable {
   TResult map<TResult extends Object?>({
     required TResult Function(RequestCancelled value) requestCancelled,
     required TResult Function(UnauthorizedRequest value) unauthorizedRequest,
+    required TResult Function(Forbidden value) forbidden,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(NotFound value) notFound,
     required TResult Function(MethodNotAllowed value) methodNotAllowed,
@@ -3015,6 +3344,7 @@ class _$ServiceUnavailableImpl implements ServiceUnavailable {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RequestCancelled value)? requestCancelled,
     TResult? Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult? Function(Forbidden value)? forbidden,
     TResult? Function(BadRequest value)? badRequest,
     TResult? Function(NotFound value)? notFound,
     TResult? Function(MethodNotAllowed value)? methodNotAllowed,
@@ -3042,6 +3372,7 @@ class _$ServiceUnavailableImpl implements ServiceUnavailable {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RequestCancelled value)? requestCancelled,
     TResult Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult Function(Forbidden value)? forbidden,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(NotFound value)? notFound,
     TResult Function(MethodNotAllowed value)? methodNotAllowed,
@@ -3100,7 +3431,7 @@ class _$NoInternetConnectionImpl implements NoInternetConnection {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NoInternetConnectionImpl);
@@ -3114,6 +3445,7 @@ class _$NoInternetConnectionImpl implements NoInternetConnection {
   TResult when<TResult extends Object?>({
     required TResult Function() requestCancelled,
     required TResult Function(String reason) unauthorizedRequest,
+    required TResult Function(String reason) forbidden,
     required TResult Function() badRequest,
     required TResult Function(String reason) notFound,
     required TResult Function(String reason) methodNotAllowed,
@@ -3141,6 +3473,7 @@ class _$NoInternetConnectionImpl implements NoInternetConnection {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? requestCancelled,
     TResult? Function(String reason)? unauthorizedRequest,
+    TResult? Function(String reason)? forbidden,
     TResult? Function()? badRequest,
     TResult? Function(String reason)? notFound,
     TResult? Function(String reason)? methodNotAllowed,
@@ -3168,6 +3501,7 @@ class _$NoInternetConnectionImpl implements NoInternetConnection {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? requestCancelled,
     TResult Function(String reason)? unauthorizedRequest,
+    TResult Function(String reason)? forbidden,
     TResult Function()? badRequest,
     TResult Function(String reason)? notFound,
     TResult Function(String reason)? methodNotAllowed,
@@ -3199,6 +3533,7 @@ class _$NoInternetConnectionImpl implements NoInternetConnection {
   TResult map<TResult extends Object?>({
     required TResult Function(RequestCancelled value) requestCancelled,
     required TResult Function(UnauthorizedRequest value) unauthorizedRequest,
+    required TResult Function(Forbidden value) forbidden,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(NotFound value) notFound,
     required TResult Function(MethodNotAllowed value) methodNotAllowed,
@@ -3226,6 +3561,7 @@ class _$NoInternetConnectionImpl implements NoInternetConnection {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RequestCancelled value)? requestCancelled,
     TResult? Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult? Function(Forbidden value)? forbidden,
     TResult? Function(BadRequest value)? badRequest,
     TResult? Function(NotFound value)? notFound,
     TResult? Function(MethodNotAllowed value)? methodNotAllowed,
@@ -3253,6 +3589,7 @@ class _$NoInternetConnectionImpl implements NoInternetConnection {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RequestCancelled value)? requestCancelled,
     TResult Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult Function(Forbidden value)? forbidden,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(NotFound value)? notFound,
     TResult Function(MethodNotAllowed value)? methodNotAllowed,
@@ -3311,7 +3648,7 @@ class _$FormatExceptionImpl implements FormatException {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$FormatExceptionImpl);
   }
@@ -3324,6 +3661,7 @@ class _$FormatExceptionImpl implements FormatException {
   TResult when<TResult extends Object?>({
     required TResult Function() requestCancelled,
     required TResult Function(String reason) unauthorizedRequest,
+    required TResult Function(String reason) forbidden,
     required TResult Function() badRequest,
     required TResult Function(String reason) notFound,
     required TResult Function(String reason) methodNotAllowed,
@@ -3351,6 +3689,7 @@ class _$FormatExceptionImpl implements FormatException {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? requestCancelled,
     TResult? Function(String reason)? unauthorizedRequest,
+    TResult? Function(String reason)? forbidden,
     TResult? Function()? badRequest,
     TResult? Function(String reason)? notFound,
     TResult? Function(String reason)? methodNotAllowed,
@@ -3378,6 +3717,7 @@ class _$FormatExceptionImpl implements FormatException {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? requestCancelled,
     TResult Function(String reason)? unauthorizedRequest,
+    TResult Function(String reason)? forbidden,
     TResult Function()? badRequest,
     TResult Function(String reason)? notFound,
     TResult Function(String reason)? methodNotAllowed,
@@ -3409,6 +3749,7 @@ class _$FormatExceptionImpl implements FormatException {
   TResult map<TResult extends Object?>({
     required TResult Function(RequestCancelled value) requestCancelled,
     required TResult Function(UnauthorizedRequest value) unauthorizedRequest,
+    required TResult Function(Forbidden value) forbidden,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(NotFound value) notFound,
     required TResult Function(MethodNotAllowed value) methodNotAllowed,
@@ -3436,6 +3777,7 @@ class _$FormatExceptionImpl implements FormatException {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RequestCancelled value)? requestCancelled,
     TResult? Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult? Function(Forbidden value)? forbidden,
     TResult? Function(BadRequest value)? badRequest,
     TResult? Function(NotFound value)? notFound,
     TResult? Function(MethodNotAllowed value)? methodNotAllowed,
@@ -3463,6 +3805,7 @@ class _$FormatExceptionImpl implements FormatException {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RequestCancelled value)? requestCancelled,
     TResult Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult Function(Forbidden value)? forbidden,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(NotFound value)? notFound,
     TResult Function(MethodNotAllowed value)? methodNotAllowed,
@@ -3521,7 +3864,7 @@ class _$UnableToProcessImpl implements UnableToProcess {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$UnableToProcessImpl);
   }
@@ -3534,6 +3877,7 @@ class _$UnableToProcessImpl implements UnableToProcess {
   TResult when<TResult extends Object?>({
     required TResult Function() requestCancelled,
     required TResult Function(String reason) unauthorizedRequest,
+    required TResult Function(String reason) forbidden,
     required TResult Function() badRequest,
     required TResult Function(String reason) notFound,
     required TResult Function(String reason) methodNotAllowed,
@@ -3561,6 +3905,7 @@ class _$UnableToProcessImpl implements UnableToProcess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? requestCancelled,
     TResult? Function(String reason)? unauthorizedRequest,
+    TResult? Function(String reason)? forbidden,
     TResult? Function()? badRequest,
     TResult? Function(String reason)? notFound,
     TResult? Function(String reason)? methodNotAllowed,
@@ -3588,6 +3933,7 @@ class _$UnableToProcessImpl implements UnableToProcess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? requestCancelled,
     TResult Function(String reason)? unauthorizedRequest,
+    TResult Function(String reason)? forbidden,
     TResult Function()? badRequest,
     TResult Function(String reason)? notFound,
     TResult Function(String reason)? methodNotAllowed,
@@ -3619,6 +3965,7 @@ class _$UnableToProcessImpl implements UnableToProcess {
   TResult map<TResult extends Object?>({
     required TResult Function(RequestCancelled value) requestCancelled,
     required TResult Function(UnauthorizedRequest value) unauthorizedRequest,
+    required TResult Function(Forbidden value) forbidden,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(NotFound value) notFound,
     required TResult Function(MethodNotAllowed value) methodNotAllowed,
@@ -3646,6 +3993,7 @@ class _$UnableToProcessImpl implements UnableToProcess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RequestCancelled value)? requestCancelled,
     TResult? Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult? Function(Forbidden value)? forbidden,
     TResult? Function(BadRequest value)? badRequest,
     TResult? Function(NotFound value)? notFound,
     TResult? Function(MethodNotAllowed value)? methodNotAllowed,
@@ -3673,6 +4021,7 @@ class _$UnableToProcessImpl implements UnableToProcess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RequestCancelled value)? requestCancelled,
     TResult Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult Function(Forbidden value)? forbidden,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(NotFound value)? notFound,
     TResult Function(MethodNotAllowed value)? methodNotAllowed,
@@ -3749,7 +4098,7 @@ class _$DefaultErrorImpl implements DefaultError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DefaultErrorImpl &&
@@ -3770,6 +4119,7 @@ class _$DefaultErrorImpl implements DefaultError {
   TResult when<TResult extends Object?>({
     required TResult Function() requestCancelled,
     required TResult Function(String reason) unauthorizedRequest,
+    required TResult Function(String reason) forbidden,
     required TResult Function() badRequest,
     required TResult Function(String reason) notFound,
     required TResult Function(String reason) methodNotAllowed,
@@ -3797,6 +4147,7 @@ class _$DefaultErrorImpl implements DefaultError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? requestCancelled,
     TResult? Function(String reason)? unauthorizedRequest,
+    TResult? Function(String reason)? forbidden,
     TResult? Function()? badRequest,
     TResult? Function(String reason)? notFound,
     TResult? Function(String reason)? methodNotAllowed,
@@ -3824,6 +4175,7 @@ class _$DefaultErrorImpl implements DefaultError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? requestCancelled,
     TResult Function(String reason)? unauthorizedRequest,
+    TResult Function(String reason)? forbidden,
     TResult Function()? badRequest,
     TResult Function(String reason)? notFound,
     TResult Function(String reason)? methodNotAllowed,
@@ -3855,6 +4207,7 @@ class _$DefaultErrorImpl implements DefaultError {
   TResult map<TResult extends Object?>({
     required TResult Function(RequestCancelled value) requestCancelled,
     required TResult Function(UnauthorizedRequest value) unauthorizedRequest,
+    required TResult Function(Forbidden value) forbidden,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(NotFound value) notFound,
     required TResult Function(MethodNotAllowed value) methodNotAllowed,
@@ -3882,6 +4235,7 @@ class _$DefaultErrorImpl implements DefaultError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RequestCancelled value)? requestCancelled,
     TResult? Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult? Function(Forbidden value)? forbidden,
     TResult? Function(BadRequest value)? badRequest,
     TResult? Function(NotFound value)? notFound,
     TResult? Function(MethodNotAllowed value)? methodNotAllowed,
@@ -3909,6 +4263,7 @@ class _$DefaultErrorImpl implements DefaultError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RequestCancelled value)? requestCancelled,
     TResult Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult Function(Forbidden value)? forbidden,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(NotFound value)? notFound,
     TResult Function(MethodNotAllowed value)? methodNotAllowed,
@@ -3972,7 +4327,7 @@ class _$UnexpectedErrorImpl implements UnexpectedError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$UnexpectedErrorImpl);
   }
@@ -3985,6 +4340,7 @@ class _$UnexpectedErrorImpl implements UnexpectedError {
   TResult when<TResult extends Object?>({
     required TResult Function() requestCancelled,
     required TResult Function(String reason) unauthorizedRequest,
+    required TResult Function(String reason) forbidden,
     required TResult Function() badRequest,
     required TResult Function(String reason) notFound,
     required TResult Function(String reason) methodNotAllowed,
@@ -4012,6 +4368,7 @@ class _$UnexpectedErrorImpl implements UnexpectedError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? requestCancelled,
     TResult? Function(String reason)? unauthorizedRequest,
+    TResult? Function(String reason)? forbidden,
     TResult? Function()? badRequest,
     TResult? Function(String reason)? notFound,
     TResult? Function(String reason)? methodNotAllowed,
@@ -4039,6 +4396,7 @@ class _$UnexpectedErrorImpl implements UnexpectedError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? requestCancelled,
     TResult Function(String reason)? unauthorizedRequest,
+    TResult Function(String reason)? forbidden,
     TResult Function()? badRequest,
     TResult Function(String reason)? notFound,
     TResult Function(String reason)? methodNotAllowed,
@@ -4070,6 +4428,7 @@ class _$UnexpectedErrorImpl implements UnexpectedError {
   TResult map<TResult extends Object?>({
     required TResult Function(RequestCancelled value) requestCancelled,
     required TResult Function(UnauthorizedRequest value) unauthorizedRequest,
+    required TResult Function(Forbidden value) forbidden,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(NotFound value) notFound,
     required TResult Function(MethodNotAllowed value) methodNotAllowed,
@@ -4097,6 +4456,7 @@ class _$UnexpectedErrorImpl implements UnexpectedError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RequestCancelled value)? requestCancelled,
     TResult? Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult? Function(Forbidden value)? forbidden,
     TResult? Function(BadRequest value)? badRequest,
     TResult? Function(NotFound value)? notFound,
     TResult? Function(MethodNotAllowed value)? methodNotAllowed,
@@ -4124,6 +4484,7 @@ class _$UnexpectedErrorImpl implements UnexpectedError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RequestCancelled value)? requestCancelled,
     TResult Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult Function(Forbidden value)? forbidden,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(NotFound value)? notFound,
     TResult Function(MethodNotAllowed value)? methodNotAllowed,
@@ -4182,7 +4543,7 @@ class _$BadCertificateErrorImpl implements BadCertificateError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BadCertificateErrorImpl);
@@ -4196,6 +4557,7 @@ class _$BadCertificateErrorImpl implements BadCertificateError {
   TResult when<TResult extends Object?>({
     required TResult Function() requestCancelled,
     required TResult Function(String reason) unauthorizedRequest,
+    required TResult Function(String reason) forbidden,
     required TResult Function() badRequest,
     required TResult Function(String reason) notFound,
     required TResult Function(String reason) methodNotAllowed,
@@ -4223,6 +4585,7 @@ class _$BadCertificateErrorImpl implements BadCertificateError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? requestCancelled,
     TResult? Function(String reason)? unauthorizedRequest,
+    TResult? Function(String reason)? forbidden,
     TResult? Function()? badRequest,
     TResult? Function(String reason)? notFound,
     TResult? Function(String reason)? methodNotAllowed,
@@ -4250,6 +4613,7 @@ class _$BadCertificateErrorImpl implements BadCertificateError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? requestCancelled,
     TResult Function(String reason)? unauthorizedRequest,
+    TResult Function(String reason)? forbidden,
     TResult Function()? badRequest,
     TResult Function(String reason)? notFound,
     TResult Function(String reason)? methodNotAllowed,
@@ -4281,6 +4645,7 @@ class _$BadCertificateErrorImpl implements BadCertificateError {
   TResult map<TResult extends Object?>({
     required TResult Function(RequestCancelled value) requestCancelled,
     required TResult Function(UnauthorizedRequest value) unauthorizedRequest,
+    required TResult Function(Forbidden value) forbidden,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(NotFound value) notFound,
     required TResult Function(MethodNotAllowed value) methodNotAllowed,
@@ -4308,6 +4673,7 @@ class _$BadCertificateErrorImpl implements BadCertificateError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RequestCancelled value)? requestCancelled,
     TResult? Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult? Function(Forbidden value)? forbidden,
     TResult? Function(BadRequest value)? badRequest,
     TResult? Function(NotFound value)? notFound,
     TResult? Function(MethodNotAllowed value)? methodNotAllowed,
@@ -4335,6 +4701,7 @@ class _$BadCertificateErrorImpl implements BadCertificateError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RequestCancelled value)? requestCancelled,
     TResult Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult Function(Forbidden value)? forbidden,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(NotFound value)? notFound,
     TResult Function(MethodNotAllowed value)? methodNotAllowed,
@@ -4393,7 +4760,7 @@ class _$UnknownErrorImpl implements UnknownError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$UnknownErrorImpl);
   }
@@ -4406,6 +4773,7 @@ class _$UnknownErrorImpl implements UnknownError {
   TResult when<TResult extends Object?>({
     required TResult Function() requestCancelled,
     required TResult Function(String reason) unauthorizedRequest,
+    required TResult Function(String reason) forbidden,
     required TResult Function() badRequest,
     required TResult Function(String reason) notFound,
     required TResult Function(String reason) methodNotAllowed,
@@ -4433,6 +4801,7 @@ class _$UnknownErrorImpl implements UnknownError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? requestCancelled,
     TResult? Function(String reason)? unauthorizedRequest,
+    TResult? Function(String reason)? forbidden,
     TResult? Function()? badRequest,
     TResult? Function(String reason)? notFound,
     TResult? Function(String reason)? methodNotAllowed,
@@ -4460,6 +4829,7 @@ class _$UnknownErrorImpl implements UnknownError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? requestCancelled,
     TResult Function(String reason)? unauthorizedRequest,
+    TResult Function(String reason)? forbidden,
     TResult Function()? badRequest,
     TResult Function(String reason)? notFound,
     TResult Function(String reason)? methodNotAllowed,
@@ -4491,6 +4861,7 @@ class _$UnknownErrorImpl implements UnknownError {
   TResult map<TResult extends Object?>({
     required TResult Function(RequestCancelled value) requestCancelled,
     required TResult Function(UnauthorizedRequest value) unauthorizedRequest,
+    required TResult Function(Forbidden value) forbidden,
     required TResult Function(BadRequest value) badRequest,
     required TResult Function(NotFound value) notFound,
     required TResult Function(MethodNotAllowed value) methodNotAllowed,
@@ -4518,6 +4889,7 @@ class _$UnknownErrorImpl implements UnknownError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RequestCancelled value)? requestCancelled,
     TResult? Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult? Function(Forbidden value)? forbidden,
     TResult? Function(BadRequest value)? badRequest,
     TResult? Function(NotFound value)? notFound,
     TResult? Function(MethodNotAllowed value)? methodNotAllowed,
@@ -4545,6 +4917,7 @@ class _$UnknownErrorImpl implements UnknownError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RequestCancelled value)? requestCancelled,
     TResult Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult Function(Forbidden value)? forbidden,
     TResult Function(BadRequest value)? badRequest,
     TResult Function(NotFound value)? notFound,
     TResult Function(MethodNotAllowed value)? methodNotAllowed,

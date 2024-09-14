@@ -3,15 +3,16 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 import 'package:flutter/foundation.dart';
-import '../../../../../service_locator.dart' as di;
+// import '../../../../../service_locator.dart' as di;
 import 'api_consumer.dart';
 import 'app_interceptors.dart';
 import 'end_points.dart';
 
 class DioConsumer extends ApiConsumer {
   final Dio client;
-
-  DioConsumer({required this.client}) {
+final AppIntercepters appIntercepters;
+final LogInterceptor logInterceptor;
+  DioConsumer({required this.appIntercepters,required this.logInterceptor, required this.client}) {
     (client.httpClientAdapter as IOHttpClientAdapter).createHttpClient =
       () {
         final HttpClient client = HttpClient();
@@ -24,9 +25,9 @@ class DioConsumer extends ApiConsumer {
       ..baseUrl = EndPoints.baseUrl
       ..responseType = ResponseType.plain
       ..followRedirects = false;
-    client.interceptors.add(di.serviceLocator<AppIntercepters>());
+    client.interceptors.add(appIntercepters);
     if (kDebugMode) {
-      client.interceptors.add(di.serviceLocator<LogInterceptor>());
+      client.interceptors.add(logInterceptor);
     }
   }
 
@@ -42,7 +43,7 @@ class DioConsumer extends ApiConsumer {
           headers: headers,
         ),
       );
-      return response;
+      return response.data;
   
   }
 
@@ -59,7 +60,7 @@ class DioConsumer extends ApiConsumer {
           ),
           queryParameters: queryParameters);
 
-      return response;
+      return response.data;
  
   }
 
@@ -74,7 +75,7 @@ class DioConsumer extends ApiConsumer {
             headers: headers,
           ),
           queryParameters: queryParameters);
-      return response;
+      return response.data;
 
   }
 
@@ -93,9 +94,11 @@ class DioConsumer extends ApiConsumer {
         ),
       );
 
-      return response;
+      return response.data;
    
   }
+  
+
 
 
 }
