@@ -12,6 +12,7 @@ abstract class NetworkExceptions with _$NetworkExceptions {
 
   const factory NetworkExceptions.unauthorizedRequest(String reason) = UnauthorizedRequest;
 
+const factory NetworkExceptions.forbidden(String reason) = Forbidden;
   const factory NetworkExceptions.badRequest() = BadRequest;
 
   const factory NetworkExceptions.notFound(String reason) = NotFound;
@@ -48,13 +49,15 @@ abstract class NetworkExceptions with _$NetworkExceptions {
 
   static NetworkExceptions handleResponse(Response? response) {
     ErrorModel errorEntity =  ErrorModel.fromJson(response?.data);
-    String errorString = "${errorEntity.field} : ${errorEntity.msg}";
+    String errorString = "${errorEntity.message}";
     int statusCode = response?.statusCode ?? 0;
     switch (statusCode) {
       case 400:
       case 401:
-      case 403:
+      
         return NetworkExceptions.unauthorizedRequest(errorString);
+        case 403:
+          return NetworkExceptions.forbidden(errorString);
       case 404:
         return NetworkExceptions.notFound(errorString);
       case 405:
@@ -155,7 +158,11 @@ abstract class NetworkExceptions with _$NetworkExceptions {
       errorMessage = "Bad request";
     }, unauthorizedRequest: (String error) {
       errorMessage = error;
-    }, unprocessableEntity: (String error) {
+    },
+    forbidden: (String error) {
+      errorMessage = error;
+    },
+     unprocessableEntity: (String error) {
       errorMessage = error;
     }, unexpectedError: () {
       errorMessage = "Unexpected error occurred";

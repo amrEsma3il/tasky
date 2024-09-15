@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 
 
 import '../../../features/auth/view/screens/login.dart';
+import '../../../features/home/view/home_screen.dart';
 import '../../../features/onboarding/view/screens/onboarding.dart';
 import '../../../features/splash/view/screens/splash_screen.dart';
 import '../app_routes_info/app_routes_name.dart';
@@ -25,6 +26,11 @@ List<GetPage<dynamic>>? routes = [
         transitionDuration: const Duration(milliseconds: 350) 
   ),
 
- 
+     GetPage(
+      page: () => const TaskPage(),
+      name: AppRouteName.taskPage,
+      transition:Transition.fadeIn,
+        transitionDuration: const Duration(milliseconds: 400) 
+  ),
   
 ];

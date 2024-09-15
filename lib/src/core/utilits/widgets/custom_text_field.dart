@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../config/theme/text_styles/styles.dart';
 import '../../constants/colors.dart';
@@ -12,8 +13,8 @@ class CustomTextField extends StatelessWidget {
   int? maxLines;
  final Color textColor;
   String? hintText;
-  double? width,height,paddingBottom,paddingTop;
-  void Function()? suffixIconHitEvent;
+  double? width,height,paddingBottom,paddingTop,radius;
+  final bool? obscureText;
   void Function(String)? onChanged;
   void Function()? onTap;
   String? Function(String?)? validator;
@@ -23,21 +24,23 @@ class CustomTextField extends StatelessWidget {
  TextEditingController controller;
  TextInputType keyBoardType;
    CustomTextField({
+    this.obscureText,
+    this.radius,
     super.key,
     this.hintText,
     this.textColor=Colors.black,
-    this.paddingTop=10,
+    this.paddingTop=15,
     this.maxLines=1,
    required this.controller,
      this.keyBoardType=TextInputType.text,
     this.prefixWidget,
     this.height,
-      this.paddingBottom=0,
+      this.paddingBottom=5,
     this.width,
    this. onChanged,
    this.validator,
    this.onTap,
-   this.suffixIconHitEvent,
+
    this.suffiWidget,
    this.hideKeyboard
 
@@ -51,10 +54,11 @@ class CustomTextField extends StatelessWidget {
            decoration: BoxDecoration(
             
           
-            borderRadius: BorderRadius.circular(28),
+            borderRadius: BorderRadius.circular(radius??10.r),
         border: Border.all(width:1,color: AppColor.softGray)),
       
       child: TextFormField(
+        obscureText: obscureText??false,
         style: TextStyle(color: textColor),
         maxLines: maxLines!,
         controller: controller
@@ -76,9 +80,9 @@ class CustomTextField extends StatelessWidget {
        decoration: InputDecoration(
         constraints: BoxConstraints(maxHeight: height!,maxWidth: width!),
         
-        contentPadding:  EdgeInsets.fromLTRB(0, paddingBottom!, 20, paddingTop!),
+        contentPadding:  EdgeInsets.fromLTRB(10, paddingTop!, 5, paddingBottom!),
          hintText: hintText,
-         hintStyle:  TextStyles.font13GrayRegular.copyWith(color: Colors.white70,
+         hintStyle:  TextStyles.font13GrayRegular.copyWith(color: AppColor.gray,
           fontSize: 16,fontFamily: "regular",),
          suffixIcon:  suffiWidget,
          prefixIcon: prefixWidget,
