@@ -1,8 +1,16 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
+import 'package:phone_form_field/phone_form_field.dart';
+import 'package:tasky/src/core/utilits/functions/toast_message.dart';
+import 'package:tasky/src/features/auth/data/models/login/token_model.dart';
 
 import '../../../../config/routing/app_routes_info/app_routes_name.dart';
+import '../../../../core/constants/colors.dart';
 import '../../../../core/errors/network_exceptions.dart';
 import '../../data/repo/auth_repo.dart';
 import 'login_state.dart';
@@ -12,31 +20,72 @@ class LoginCubit extends Cubit<LoginState> {
   LoginCubit({required this.authRepo}) : super(InitState());
 static LoginCubit get(BuildContext context)=>BlocProvider.of<LoginCubit>(context);
  static GlobalKey<FormState> formstate = GlobalKey<FormState>();
-TextEditingController phoneNoController=TextEditingController();
+PhoneController phoneNoController=PhoneController(initialValue: const PhoneNumber(isoCode: IsoCode.EG, nsn: "123 456-7890"));
 TextEditingController passwordController=TextEditingController();
 
 
 login({required String phone,required String password,})async{
+
+// var headers = {
+//   'Content-Type': 'application/json',
+//   'Authorization': '••••••'
+// };
+// var response =await http.post(Uri.parse('https://todo.iraqsapp.com/auth/login'),
+// body:{
+//   "phone": "01009931326",
+//   "password": "123456"
+// }  );
+// // request.body = json.encode({
+// //   "phone": "01009931326",
+// //   "password": "123456"
+// // });
+// // request.headers.addAll(headers);
+
+// // http.StreamedResponse response = await request.send();
+
+// if (response.statusCode == 200|| response.statusCode == 201) {
+// TokenModel  data=TokenModel.fromJson(jsonDecode(response.body));
+//   // print(await response.stream.bytesToString());
+//   log("success");
+//   log("id : ${data.id}");
+//     log("access token : ${data.accessToken}");
+//       log("refresh token : ${data.refreshToken}");
+//   showToast("success login", AppColor.movee);
+//   Future.delayed(Duration(seconds: 2));
+//   Get.offNamed(AppRouteName.home);
+// }
+// else {
+//   log(response.reasonPhrase.toString());
+//     showToast("failure", AppColor.movee);
+
+// }
+
+
+  // log(phone);
 if (formstate.currentState!.validate()){
-  var dataState=await authRepo.login(phone: phone, password: password);
+  print("pass ${password}");
+  var dataState=await authRepo.login(  phone: "01009931326",
+  password:password);
   dataState.when(success: (data) {
-    emit(SuccessState(successMessage: data));
+    // emit(SuccessState(successMessage: data));
+         showToast(data, AppColor.movee);
+
          clearTextInTextField();
-        Future.delayed(const Duration(seconds: 1));
-        Get.offNamed(AppRouteName.home);
+        Future.delayed(const Duration(seconds: 2));
+        Get.offNamed(AppRouteName.taskPage);
     
   }, failure: (networkExceptions) {
-    
-        emit(FailureState(errorMessage: NetworkExceptions.getErrorMessage(networkExceptions)));
+     showToast(NetworkExceptions.getErrorMessage(networkExceptions), AppColor.movee);
+        // emit(FailureState(errorMessage: NetworkExceptions.getErrorMessage(networkExceptions)));
   },);
+}else{showToast("at least one field not valid", AppColor.amber);
 }
-
 
 }
 
  
   void clearTextInTextField() {
-    phoneNoController.text = "";
+    phoneNoController.value = const PhoneNumber(nsn: "",isoCode: IsoCode.EG);
 
     passwordController.text = "";
   }

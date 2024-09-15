@@ -9,8 +9,6 @@ import '../../../../../service_locator.dart' as di;
 import '../../../../config/routing/app_routes_info/app_routes_name.dart';
 class SplashCubit extends Cubit<int> {
   SplashCubit() : super(5);
-// static SplashCubit get(BuildContext context)=> BlocProvider.of<SplashCubit>(context);
-TextEditingController passwordController=TextEditingController();
 
 late Timer time;
 

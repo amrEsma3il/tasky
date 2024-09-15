@@ -5,7 +5,11 @@ class AppColor {
 
 //
     static Color movee = "#5f33e1".toColor;
- static Color textColor1 = "#6E6A7C".toColor;
+ static Color textColor1 = "#6E6A7C".toColor;//#f0ecff
+  static Color softMovee = "#f0ecff".toColor;//#
+
+
+
 
 
 

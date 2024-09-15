@@ -12,3 +12,10 @@ final String errorMessage;
   FailureState({required this.errorMessage});
 
 }
+
+
+
+
+
+
+

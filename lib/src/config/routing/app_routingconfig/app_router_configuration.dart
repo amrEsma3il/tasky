@@ -27,8 +27,8 @@ List<GetPage<dynamic>>? routes = [
   ),
 
      GetPage(
-      page: () => const HomeScreen(),
-      name: AppRouteName.home,
+      page: () => const TaskPage(),
+      name: AppRouteName.taskPage,
       transition:Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 400) 
   ),

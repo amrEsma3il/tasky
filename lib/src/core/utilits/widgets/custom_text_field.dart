@@ -14,7 +14,7 @@ class CustomTextField extends StatelessWidget {
  final Color textColor;
   String? hintText;
   double? width,height,paddingBottom,paddingTop,radius;
-  
+  final bool? obscureText;
   void Function(String)? onChanged;
   void Function()? onTap;
   String? Function(String?)? validator;
@@ -24,6 +24,7 @@ class CustomTextField extends StatelessWidget {
  TextEditingController controller;
  TextInputType keyBoardType;
    CustomTextField({
+    this.obscureText,
     this.radius,
     super.key,
     this.hintText,
@@ -57,6 +58,7 @@ class CustomTextField extends StatelessWidget {
         border: Border.all(width:1,color: AppColor.softGray)),
       
       child: TextFormField(
+        obscureText: obscureText??false,
         style: TextStyle(color: textColor),
         maxLines: maxLines!,
         controller: controller

@@ -22,8 +22,9 @@ final LogInterceptor logInterceptor;
     };
 
     client.options
+..receiveTimeout=const Duration(seconds: 28)
       ..baseUrl = EndPoints.baseUrl
-      ..responseType = ResponseType.plain
+      // ..responseType = ResponseType.plain
       ..followRedirects = false;
     client.interceptors.add(appIntercepters);
     if (kDebugMode) {
