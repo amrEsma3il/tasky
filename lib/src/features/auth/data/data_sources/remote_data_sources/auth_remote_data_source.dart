@@ -1,4 +1,4 @@
-import '../../../../../core/utilits/services/api/api_consumer.dart';
+
 import '../../../../../core/utilits/services/api/dio_consumer.dart';
 import '../../../../../core/utilits/services/api/end_points.dart';
 import '../../models/login/login_request_entity.dart';
@@ -14,7 +14,10 @@ return TokenModel.fromJson(await dioConsumer.post(EndPoints.login,body:UserModel
   }
 
   register(){
+//
 
-
+  }
+  logOut(){
+    //
   }
 }

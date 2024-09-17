@@ -12,6 +12,7 @@ import 'package:tasky/src/features/auth/data/models/login/token_model.dart';
 import '../../../../config/routing/app_routes_info/app_routes_name.dart';
 import '../../../../core/constants/colors.dart';
 import '../../../../core/errors/network_exceptions.dart';
+import '../../../task/logic/task_cubit/task_cubit.dart';
 import '../../data/repo/auth_repo.dart';
 import 'login_state.dart';
 
@@ -24,7 +25,7 @@ PhoneController phoneNoController=PhoneController(initialValue: const PhoneNumbe
 TextEditingController passwordController=TextEditingController();
 
 
-login({required String phone,required String password,})async{
+Future login({required String phone,required String password,})async{
 
 // var headers = {
 //   'Content-Type': 'application/json',
@@ -71,8 +72,13 @@ if (formstate.currentState!.validate()){
          showToast(data, AppColor.movee);
 
          clearTextInTextField();
+
         Future.delayed(const Duration(seconds: 2));
-        Get.offNamed(AppRouteName.taskPage);
+      
+
+        Get.offNamed(AppRouteName.taskPage)!.then((value) {
+          
+        },);
     
   }, failure: (networkExceptions) {
      showToast(NetworkExceptions.getErrorMessage(networkExceptions), AppColor.movee);

@@ -35,11 +35,12 @@ class AppColor {
   static const black = Colors.black;
   static const Color softGray = Color(0xFFE4DFDF);
   static const Color heighlightColor = Color.fromARGB(255, 220, 203, 135);
-  static const Color blueColor = Color(0xff404C6E);
+  static  Color blueColor = "#0087FF".toColor;
   static Color creame = const Color(0xffFAF6EB);
   static Color lightBrown = const Color(0xffA85000);
   static Color pantone = const Color(0xffA18575);
   static Color darkYellow = const Color.fromARGB(255, 150, 126, 68);
+  static Color orange ="#FF7D53".toColor;
 
 //const
   static Color lightBrownWithOpacity10 =

@@ -11,6 +11,9 @@ import 'src/features/auth/logic/login_cubit/padding_cubit/pading_cubit.dart';
 import 'src/features/auth/logic/login_cubit/password_cubit/password_cubit.dart';
 import 'src/features/onboarding/logic/onboarding_cubit/onboarding_cubit.dart';
 import 'src/features/splash/logic/splash_cubit/splash_cubit.dart';
+import 'src/features/task/data/data_sources/task_remote_data_source.dart';
+import 'src/features/task/data/repo/task_repo.dart';
+import 'src/features/task/logic/task_cubit/task_cubit.dart';
 
 final serviceLocator = GetIt.instance;
 Future<void> init() async {
@@ -20,6 +23,9 @@ Future<void> init() async {
   serviceLocator.registerFactory<SplashCubit>(() => SplashCubit());
   serviceLocator.registerFactory<LoginCubit>(
       () => LoginCubit(authRepo: serviceLocator()));
+
+      serviceLocator.registerFactory<TaskCubit>(
+      () => TaskCubit(hive: serviceLocator(),taskRepo: serviceLocator()));//
  
        serviceLocator.registerFactory<PaddingCubit>(
       () => PaddingCubit());
@@ -31,15 +37,25 @@ Future<void> init() async {
   serviceLocator.registerLazySingleton(
       () => AuthRepo(authRemoteDataSource: serviceLocator(),sharedPreferences: serviceLocator()));
 
+  serviceLocator.registerLazySingleton(
+      () => TaskRepo(taskRemoteDataSource: serviceLocator()));
+
+//
 //DataSources
 
   serviceLocator.registerLazySingleton(
       () => AuthRemoteDataSource(dioConsumer: serviceLocator()));
 
+
   serviceLocator.registerLazySingleton(
-      () => DioConsumer(client: serviceLocator(),appIntercepters: serviceLocator(),logInterceptor: serviceLocator()));
+      () => TaskRemoteDataSource(dioConsumer: serviceLocator()));
+ 
+      
+    
   //External
   
+ serviceLocator.registerLazySingleton(
+      () => DioConsumer(client: serviceLocator(),appIntercepters: serviceLocator(),logInterceptor: serviceLocator()));  
 
   final sharedPreferences = await SharedPreferences.getInstance();
   serviceLocator.registerLazySingleton(() => sharedPreferences);

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
@@ -13,8 +14,8 @@ import 'end_points.dart';
 
 class AppIntercepters extends Interceptor {
   final Dio client;
-final SharedPreferences sharedPreferences;
-  AppIntercepters({required this.sharedPreferences ,required this.client});
+  final SharedPreferences sharedPreferences;
+  AppIntercepters({required this.sharedPreferences, required this.client});
 
   @override
   void onRequest(
@@ -22,16 +23,16 @@ final SharedPreferences sharedPreferences;
     options.headers[HttpHeaders.acceptHeader] = ContentType.json;
 
     bool isAuthed =
-        sharedPreferences.getString("token_info") == null
-            ? false
-            : true;
+        sharedPreferences.getString("token_info") == null ? false : true;
+
+    log(isAuthed.toString());
 
     if (isAuthed) {
-      TokenModel? authenticatedUser = TokenModel.fromJson(jsonDecode(
-          sharedPreferences.getString("token_info") ??
-              "") as Map<String, dynamic>);
+      TokenModel? authenticatedUser = TokenModel.fromJson(
+          jsonDecode(sharedPreferences.getString("token_info") ?? "")
+              as Map<String, dynamic>);
       options.headers[HttpHeaders.authorizationHeader] =
-          "Bearer${authenticatedUser.accessToken}";
+          "Bearer ${authenticatedUser.accessToken}";
     }
     super.onRequest(options, handler);
   }
@@ -43,62 +44,62 @@ final SharedPreferences sharedPreferences;
     super.onResponse(response, handler);
   }
 
-  @override
-  Future<void> onError(
-      DioException err, ErrorInterceptorHandler handler) async {
-    debugPrint(
-        'ERROR[${err.response?.statusCode}] => PATH: ${err.requestOptions.path}');
+   @override
+  Future<void> onError(DioException err, ErrorInterceptorHandler handler) async {
+    log("errorrrrrrrrrrrrrrr");
+    debugPrint("ERROR[${err.response?.statusCode}] => PATH: ${err.requestOptions.path}");
+
     if (err.response?.statusCode == 401) {
-      bool isAuthed =
-          sharedPreferences.getString("token_info") == null
-              ? false
-              : true;
+      SharedPreferences preferences = await SharedPreferences.getInstance();
+      String? tokenInfo = preferences.getString("token_info");
 
-      if (isAuthed) {
-        TokenModel? authenticatedUser = TokenModel.fromJson(jsonDecode(
-            sharedPreferences.getString("token_info") ??
-                "") as Map<String, dynamic>);
+      if (tokenInfo != null) {
+        TokenModel authenticatedUser = TokenModel.fromJson(jsonDecode(tokenInfo) as Map<String, dynamic>);
         try {
-          final dataState = await refreshToken(
-              id: authenticatedUser.id,
-              refreshToken: authenticatedUser.refreshToken);
-
+          final dataState = await refreshToken(refreshToken: authenticatedUser.refreshToken, id: authenticatedUser.id);
           dataState.when(
             success: (data) async {
-              return handler.resolve(await retry(err.requestOptions));
+              RequestOptions requestOptions = err.requestOptions;
+              requestOptions.headers['Authorization'] = 'Bearer ${authenticatedUser.accessToken}';
+              try {
+                final response = await client.fetch(requestOptions);
+                handler.resolve(response);
+              } catch (e) {
+                handler.reject(DioException(requestOptions: requestOptions, error: 'Failed after token refresh: $e'));
+              }
             },
             failure: (networkExceptions) {
-              showToast(NetworkExceptions.getErrorMessage(networkExceptions),
-                  AppColor.movee);
+              showToast("Network error: $networkExceptions",AppColor.movee.withOpacity(0.2));
+              handler.reject(DioException(requestOptions: err.requestOptions, error: 'Token refresh failed: $networkExceptions'));
             },
           );
         } catch (e) {
-          print("unexpexted error");
+          if (kDebugMode) {
+            print("unexpected error: $e");
+          }
+          handler.reject(DioException(requestOptions: err.requestOptions, error: 'Exception during token refresh: $e'));
         }
+      } else {
+        handler.next(err);
       }
-      // UserModel? authenticatedUser =
-      //     await authLocalDataSource.getSavedLoginCredentials();
-      // if (authenticatedUser != null) {
-      // if (await _refreshToken(
-      //   authenticatedUser,
-      // )) {
-      //   return handler.resolve(await _retry(err.requestOptions));
-      // }
-      // }
+    } else {
+      handler.next(err);
     }
     super.onError(err, handler);
   }
 
-  Future<Response<dynamic>> retry(RequestOptions requestOptions)async {
-    final options = Options(
-      method: requestOptions.method,
-      headers: requestOptions.headers,
-    );
-    return client.request<dynamic>(requestOptions.path,
-        data: requestOptions.data,
-        queryParameters: requestOptions.queryParameters,
-        options: options);
-  }
+
+
+  // Future<Response<dynamic>> retry(RequestOptions requestOptions) async {
+  //   final options = Options(
+  //     method: requestOptions.method,
+  //     headers: requestOptions.headers,
+  //   );
+  //   return client.request<dynamic>(requestOptions.path,
+  //       data: requestOptions.data,
+  //       queryParameters: requestOptions.queryParameters,
+  //       options: options);
+  // }
 
   Future<DataState<String>> refreshToken(
       {required String refreshToken, required String id}) async {
@@ -114,22 +115,8 @@ final SharedPreferences sharedPreferences;
               .toJson()));
       return const DataState.success("");
     } catch (e) {
-      return DataState.failure(NetworkExceptions.forbidden('feailed refresh'));
+      return const DataState.failure(
+          NetworkExceptions.forbidden('feailed refresh'));
     }
-
-    // final response = await client.post(EndPoints.refreshToken, data: {
-    //   AppStrings.token: authenticatedUser.token,
-    //   AppStrings.refreshToken: authenticatedUser.refreshToken,
-    // });
-    // final jsonResponse = Commons.decodeJson(response);
-    // BaseResponseModel baseResponse = BaseResponseModel.fromJson(jsonResponse);
-    // if (baseResponse.isSuccess!) {
-    //   authenticatedUser.token = baseResponse.data["token"];
-    //   authenticatedUser.refreshToken = baseResponse.data["refreshToken"];
-    //   authLocalDataSource.saveLoginCredentials(userModel: authenticatedUser);
-    //   return true;
-    // } else {
-    //   return false;
-    // }
   }
 }

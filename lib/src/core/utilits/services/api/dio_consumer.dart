@@ -20,9 +20,10 @@ final LogInterceptor logInterceptor;
             (X509Certificate cert, String host, int port) => true;
         return client;
     };
-
+  client
+    ..options.receiveTimeout = const Duration(seconds: 22)
+    ..options.connectTimeout = const Duration(seconds: 22);
     client.options
-..receiveTimeout=const Duration(seconds: 28)
       ..baseUrl = EndPoints.baseUrl
       // ..responseType = ResponseType.plain
       ..followRedirects = false;

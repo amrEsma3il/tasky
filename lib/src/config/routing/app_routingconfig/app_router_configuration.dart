@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 
 
 import '../../../features/auth/view/screens/login.dart';
-import '../../../features/home/view/home_screen.dart';
+import '../../../features/task/view/screens/task_page.dart';
 import '../../../features/onboarding/view/screens/onboarding.dart';
 import '../../../features/splash/view/screens/splash_screen.dart';
 import '../app_routes_info/app_routes_name.dart';

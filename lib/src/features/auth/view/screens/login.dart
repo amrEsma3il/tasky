@@ -10,6 +10,7 @@ import '../../../../core/utilits/functions/toast_message.dart';
 import '../../../../core/utilits/widgets/custom_text_field.dart';
 import '../../../../core/utilits/widgets/cutom_button.dart';
 import '../../../onboarding/logic/onboarding_cubit/onboarding_cubit.dart';
+import '../../../task/logic/task_cubit/task_cubit.dart';
 import '../../logic/login_cubit/login_cubit.dart';
 import '../../logic/login_cubit/login_state.dart';
 import '../../logic/login_cubit/password_cubit/password_cubit.dart';
@@ -117,14 +118,16 @@ class Login extends StatelessWidget {
                   ),
                   CustomButton(
                     width: 326.w,
-                    onPressed: () {
-                      di.serviceLocator<LoginCubit>().login(
+                    onPressed: () async{
+                    await  di.serviceLocator<LoginCubit>().login(
                           phone: LoginCubit.get(context).phoneNoController
                               .value
                               .countryCode.split("").last.toString()+  LoginCubit.get(context).phoneNoController
                               .value
                               .nsn,
                           password: LoginCubit.get(context).passwordController.text);
+                           if(!context.mounted)return;
+                            TaskCubit.get(context).fetchTodos();
                     },
                     text: "Sign In",
                   )

@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -126,6 +127,8 @@ const factory NetworkExceptions.forbidden(String reason) = Forbidden;
       }
     } else {
       if (error.toString().contains("is not a subtype of")) {
+
+        log("from exception file : error is  =>   unableToProcess");
         return const NetworkExceptions.unableToProcess();
       } else {
         return const NetworkExceptions.unexpectedError();
