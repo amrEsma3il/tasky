@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'dart:developer';
 import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 import 'package:flutter/foundation.dart';
@@ -38,13 +40,26 @@ final LogInterceptor logInterceptor;
       {Map<String, dynamic>? queryParameters,
       Map<String, String>? headers}) async {
 
-      final response = await client.get(
+     
+            final response = await client.get(
         path,
         queryParameters: queryParameters,
         options: Options(
           headers: headers,
         ),
       );
+
+      if (response.statusCode==401) {
+        log("status code is 401");
+        log(response.data);
+      
+      }
+          
+    
+
+    
+
+      
       return response.data;
   
   }

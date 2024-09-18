@@ -1,10 +1,14 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/route_manager.dart';
 import '../../../../core/constants/colors.dart';
 import '../../data/models/task_model.dart';
+import '../../data/repo/task_repo.dart';
+import '../../logic/change_status_cubit/change_status_cubit.dart';
 import '../../logic/task_cubit/task_cubit.dart';
 import '../../logic/task_cubit/task_state.dart';
 import '../widgets/task_card.dart';
@@ -62,60 +66,47 @@ class TaskPage extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding:  EdgeInsets.symmetric(horizontal: 12.w),
+                  padding:  EdgeInsets.symmetric(horizontal: 13.w),
                   child: Row(
-                    children: [
-                      FilterChip(
-                        label: Text(
-                          "All",
-                          style: TextStyle(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w400,
-                              color: AppColor.gray),
-                        ),
-                        onSelected: (_) {},
-                        backgroundColor: AppColor.softMovee,
-                      ),
-                      const SizedBox(width: 6),
-                      FilterChip(
-                        label: Text(
-                          "Inprogress",
-                          style: TextStyle(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w400,
-                              color: AppColor.gray),
-                        ),
-                        onSelected: (_) {},
-                        backgroundColor: AppColor.softMovee,
-                      ),
-                      const SizedBox(width: 6),
-                      FilterChip(
-                        label: Text(
-                          "Waiting",
-                          style: TextStyle(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w400,
-                              color: AppColor.gray),
-                        ),
-                        onSelected: (_) {},
-                        backgroundColor: AppColor.softMovee,
-                      ),
-                      const SizedBox(width: 6),
-                      FilterChip(
-                        label: Text(
-                          "Finished",
-                          style: TextStyle(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w400,
-                              color: AppColor.gray),
-                        ),
-                        onSelected: (_) {},
-                        backgroundColor: AppColor.softMovee,
-                      ),
-                    ],
+                    children: List.generate(
+                      TaskRepo.statusList(context).length,
+                      (index) {
+                        List<Map<String, dynamic>> statusList =
+                            TaskRepo.statusList(context);
+                        return BlocBuilder<ChangeStatusCubit, int>(
+                          builder: (context, state) {
+                            return Container(margin: EdgeInsets.only(right:index== TaskRepo.statusList(context).length-1?0: 6.w),
+                              child: FilterChip(
+                                  side: const BorderSide(width: 0),
+                                  label: Text(
+                                    statusList[index]['status_name'],
+                                    style: TextStyle(
+                                        fontSize: 16.sp,
+                                        fontWeight: state == index
+                                            ? FontWeight.w700
+                                            : FontWeight.w400,
+                                        color: state == index
+                                            ? Colors.white
+                                            : AppColor.gray),
+                                  ),
+                                  onSelected: (isSelected) {
+                                 
+                                  ChangeStatusCubit.get(context).changeStatus(index);
+                                  TaskCubit.get(context).filterTasksByStatus((statusList[index]['status_name'] as String).toLowerCase());
+                                  },
+                                  backgroundColor: state == index
+                                      ? AppColor.movee
+                                      : AppColor.softMovee),
+                            );
+                          },
+                        );
+                      },
+                    ),
                   ),
                 ),
-                SizedBox(height: 20.h,),
+                SizedBox(
+                  height: 20.h,
+                ),
                 Expanded(
                   child: BlocBuilder<TaskCubit, TaskState>(
                     builder: (context, state) {
@@ -129,16 +120,34 @@ class TaskPage extends StatelessWidget {
                         return RefreshIndicator(
                           onRefresh: TaskCubit.get(context).onRefresh,
                           child: Padding(
-                            padding:  EdgeInsets.symmetric(horizontal: 20.w),
+                            padding: EdgeInsets.symmetric(horizontal: 20.w),
                             child: ListView.builder(
-                              controller: TaskCubit.get(context).scrollController,
+                              controller:
+                                  TaskCubit.get(context).scrollController,
                               itemCount: state.hasReachedMax
                                   ? state.todos.length
                                   : state.todos.length + 1,
                               itemBuilder: (context, index) {
                                 if (index >= state.todos.length) {
-                                  return const Center(
-                                      child: CircularProgressIndicator());
+                                  if (state.pageLength < 20) {
+                                    return Center(
+                                      child: Padding(
+                                        padding: EdgeInsets.only(bottom: 4.h),
+                                        child: Text(
+                                          "Has No More Tasks",
+                                          style: TextStyle(
+                                              fontSize: 14.8.sp,
+                                              color: AppColor.gray,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                      ),
+                                    );
+                                  } else {
+                                    return Center(
+                                        child: CircularProgressIndicator(
+                                      color: AppColor.movee,
+                                    ));
+                                  }
                                 } else {
                                   final Task? todo = state.todos[index];
                                   return TaskCard(
@@ -168,23 +177,30 @@ class TaskPage extends StatelessWidget {
                   // Handle QR Code button press
                   print('QR Code FAB Pressed');
                 }, // QR Code icon
-                backgroundColor:AppColor.softMovee,
-                child: Icon(Icons.qr_code,color: AppColor.movee,), // Adjust color if needed
+                backgroundColor: AppColor.softMovee,
+                child: Icon(
+                  Icons.qr_code,
+                  color: AppColor.movee,
+                ), // Adjust color if needed
               ),
             ),
             // The Add FAB (main button)
             Positioned(
               bottom: 30, // Positioning at the bottom
               right: 30, // Positioning on the right side
-              child: FloatingActionButton(shape: const CircleBorder(),
-                heroTag: "addnote",
-                onPressed: () {
-                  // Handle Add button press
-                  print('Add Task FAB Pressed');
-                },
-                child: const Icon(Icons.add,color: Colors.white,), // The plus icon
-                backgroundColor: AppColor.movee // Adjust color if needed
-              ),
+              child: FloatingActionButton(
+                  shape: const CircleBorder(),
+                  heroTag: "addnote",
+                  onPressed: () {
+                    // Handle Add button press
+                    print('Add Task FAB Pressed');
+                  },
+                  child: const Icon(
+                    Icons.add,
+                    color: Colors.white,
+                  ), // The plus icon
+                  backgroundColor: AppColor.movee // Adjust color if needed
+                  ),
             ),
           ],
         ),

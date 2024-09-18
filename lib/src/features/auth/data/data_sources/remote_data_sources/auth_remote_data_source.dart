@@ -20,4 +20,23 @@ return TokenModel.fromJson(await dioConsumer.post(EndPoints.login,body:UserModel
   logOut(){
     //
   }
+
+  // Future<DataState<String>> refreshToken(
+  //     {required String refreshToken, required String id}) async {
+  //   try {
+  //     final response = await client.get(EndPoints.refreshToken,
+  //         queryParameters: {'token': refreshToken});
+  //     sharedPreferences.setString(
+  //         "token_info",
+  //         jsonEncode(TokenModel(
+  //                 id: id,
+  //                 refreshToken: refreshToken,
+  //                 accessToken: response.data['access_token'])
+  //             .toJson()));
+  //     return const DataState.success("");
+  //   } catch (e) {
+  //     return const DataState.failure(
+  //         NetworkExceptions.forbidden('feailed refresh'));
+  //   }
+  // }
 }

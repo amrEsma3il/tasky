@@ -12,6 +12,7 @@ import 'src/features/auth/logic/login_cubit/password_cubit/password_cubit.dart';
 import 'src/features/onboarding/logic/onboarding_cubit/onboarding_cubit.dart';
 import 'src/features/splash/logic/splash_cubit/splash_cubit.dart';
 import 'src/features/task/data/models/task_model.dart';
+import 'src/features/task/logic/change_status_cubit/change_status_cubit.dart';
 import 'src/features/task/logic/task_cubit/task_cubit.dart';
 
 
@@ -43,8 +44,8 @@ BlocProvider(create: (context)=>di.serviceLocator<OnboardingCubit>()),
 BlocProvider(create: (context) => di.serviceLocator<LoginCubit>(),),
 BlocProvider(create: (context)=>di.serviceLocator<PaddingCubit>()),
 BlocProvider(create: (context) => di.serviceLocator<PasswordCubit>(),),
-BlocProvider(create: (context) => di.serviceLocator<TaskCubit>(),)
-
+BlocProvider(create: (context) => di.serviceLocator<TaskCubit>(),),
+BlocProvider(create: (context) => ChangeStatusCubit(),)
 
 
           ],

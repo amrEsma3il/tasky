@@ -40,7 +40,7 @@ class TaskCard extends StatelessWidget {
                     SizedBox(
                       width: 156.w,
                       child: Text(
-                        "Grocery Shopping App",
+                       task.title,
                         maxLines: 1,
                         style: TextStyle(
                             overflow: TextOverflow.ellipsis,

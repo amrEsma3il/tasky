@@ -13,13 +13,16 @@ import 'src/features/onboarding/logic/onboarding_cubit/onboarding_cubit.dart';
 import 'src/features/splash/logic/splash_cubit/splash_cubit.dart';
 import 'src/features/task/data/data_sources/task_remote_data_source.dart';
 import 'src/features/task/data/repo/task_repo.dart';
+import 'src/features/task/logic/change_status_cubit/change_status_cubit.dart';
 import 'src/features/task/logic/task_cubit/task_cubit.dart';
 
 final serviceLocator = GetIt.instance;
 Future<void> init() async {
-//Bloc
+//Bloc 
 
   serviceLocator.registerFactory<OnboardingCubit>(() => OnboardingCubit());
+    serviceLocator.registerFactory<ChangeStatusCubit>(() => ChangeStatusCubit());
+
   serviceLocator.registerFactory<SplashCubit>(() => SplashCubit());
   serviceLocator.registerFactory<LoginCubit>(
       () => LoginCubit(authRepo: serviceLocator()));

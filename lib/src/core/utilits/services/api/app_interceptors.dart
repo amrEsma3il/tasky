@@ -65,6 +65,9 @@ class AppIntercepters extends Interceptor {
                 final response = await client.fetch(requestOptions);
                 handler.resolve(response);
               } catch (e) {
+                  if (kDebugMode) {
+            log("unexpected error from refresh 1: $e");
+          }
                 handler.reject(DioException(requestOptions: requestOptions, error: 'Failed after token refresh: $e'));
               }
             },
@@ -75,7 +78,7 @@ class AppIntercepters extends Interceptor {
           );
         } catch (e) {
           if (kDebugMode) {
-            print("unexpected error: $e");
+            log("unexpected error from refresh 2: $e");
           }
           handler.reject(DioException(requestOptions: err.requestOptions, error: 'Exception during token refresh: $e'));
         }
@@ -85,7 +88,7 @@ class AppIntercepters extends Interceptor {
     } else {
       handler.next(err);
     }
-    super.onError(err, handler);
+    // super.onError(err, handler);
   }
 
 
@@ -103,6 +106,12 @@ class AppIntercepters extends Interceptor {
 
   Future<DataState<String>> refreshToken(
       {required String refreshToken, required String id}) async {
+
+log('------------------------------------------------------------------------');
+log("hi from refresh method");
+
+
+
     try {
       final response = await client.get(EndPoints.refreshToken,
           queryParameters: {'token': refreshToken});
