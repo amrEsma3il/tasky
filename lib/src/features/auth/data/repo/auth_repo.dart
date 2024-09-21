@@ -27,4 +27,18 @@ sharedPreferences.setString("token_info", jsonEncode(tokenInfo.toJson()));
 
 
   }
+
+
+Future<DataState<String>>  logOut()async{
+  try {
+    bool result=await authRemoteDataSource.logOut();
+    if (result) return const DataState.success("Logout Successfully");
+
+  return const DataState.failure(NetworkExceptions.unexpectedError());
+  } catch (e) {
+           return DataState.failure(NetworkExceptions.getDioException(e));
+
+  }
+
+  }
 }

@@ -30,7 +30,7 @@ class Login extends StatelessWidget {
               showToast(state.successMessage,const Color.fromARGB(255, 14, 85, 1));
             }
  if (state is FailureState) {
-   showToast(state.errorMessage,const Color.fromARGB(202, 135, 16, 0)) ;
+   showToast(state.errorMessage,AppColor.softMovee) ;
  }
            
        
@@ -94,8 +94,7 @@ class Login extends StatelessWidget {
                                   padding: EdgeInsets.only(top: 3.h),
                                   child: IconButton(
                                     onPressed: () {
-                                      di
-                                          .serviceLocator<PasswordCubit>()
+                                      PasswordCubit.get(context)
                                           .showPassword();
                                     },
                                     icon: Icon(

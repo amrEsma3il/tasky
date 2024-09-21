@@ -54,13 +54,13 @@ class PhoneInputField extends StatelessWidget {
                LoginCubit.get(context).phoneNoController.value=phoneNumber;
               print("phone num ${phoneNumber.nsn}");
               print("phone num from controller${  LoginCubit.get(context).phoneNoController.value.nsn}");
-              if ((phoneNumber != null && phoneNumber.isValid()) ||
+              if ((phoneNumber.isValid()) ||
                   (phoneNumber.nsn.trim().isNotEmpty)) {
                 print("Phone number is valid");
-                di.serviceLocator<PaddingCubit>().changePadding(14.4);
+              PaddingCubit.get(context).changePadding(14.4);
                 // Add further logic for valid number
               } else {
-                di.serviceLocator<PaddingCubit>().changePadding(14.4);
+              PaddingCubit.get(context).changePadding(31);
               }
               // if (phoneNumber.nsn.trim().isNotEmpty){
               //   print("Invalid mobile phone number");

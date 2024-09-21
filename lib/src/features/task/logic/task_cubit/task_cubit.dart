@@ -23,18 +23,20 @@ class TaskCubit extends Cubit<TaskState> {
 
      static TaskCubit get(BuildContext context)=>BlocProvider.of<TaskCubit>(context);
 
-  Future<void> fetchTodos({bool isRefresh = false}) async {
+  Future<void> fetchTodos({bool isRefresh = false,String status="all",bool filter=false}) async {
 
-     List<Task?> cachedTodos =
+     List<Task> cachedTodos =
               hive.box('todos').get('todos', defaultValue: <Task>[]);
 
     if (state is TaskLoading) return;
-    if (isRefresh) {
+    if (isRefresh ) {
       page = 1;
       emit(TaskInitial());
     }
 
- if (cachedTodos.isEmpty) {
+
+
+ if (cachedTodos.isEmpty || filter) {
    emit(TaskLoading());
  }   
 
@@ -42,19 +44,31 @@ class TaskCubit extends Cubit<TaskState> {
 
     dataState.when(
       success: (todos) async {
-        
+        int pageLength=todos.length;
         if (todos.isEmpty && cachedTodos.isEmpty) {
           emit(TodoEmpty());
         } else {
          
 
           if (!isRefresh) {
-            todos.addAll(cachedTodos); // Add new todos to the previous list
+            todos=cachedTodos+todos; // Add new todos to the previous list
           }
           await hive.box('todos').put('todos', todos); // Store todos in the box
           // Cache the data in Hive
 
-          emit(TaskLoaded(todos: todos, hasReachedMax: todos.length < 20));
+
+          //filter tasks by status
+          if (status!="all") {
+            todos= todos.where((todo) => todo.status.toLowerCase() == status).toList();
+
+          }
+            if (todos.isEmpty) {
+              emit(TodoEmpty());
+            }else{
+                        emit(TaskLoaded(todos: todos.toSet().toList(), hasReachedMax: todos.length < 20,pageLength:pageLength ));
+
+            }
+
         }
         page++;
       },
@@ -82,5 +96,10 @@ class TaskCubit extends Cubit<TaskState> {
   Future<void> onRefresh() async {
     await fetchTodos(isRefresh: true);
   }
+
+ filterTasksByStatus(String status,bool filter){
+  fetchTodos(status: status);
+ 
+ }
 
 }

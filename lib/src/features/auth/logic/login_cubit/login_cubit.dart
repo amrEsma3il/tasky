@@ -65,11 +65,11 @@ Future login({required String phone,required String password,})async{
   // log(phone);
 if (formstate.currentState!.validate()){
   print("pass ${password}");
-  var dataState=await authRepo.login(  phone: "01009931326",
+  var dataState=await authRepo.login(  phone: phone,
   password:password);
   dataState.when(success: (data) {
     // emit(SuccessState(successMessage: data));
-         showToast(data, AppColor.movee);
+         showToast(data, AppColor.softMovee);
 
          clearTextInTextField();
 
@@ -81,10 +81,10 @@ if (formstate.currentState!.validate()){
         },);
     
   }, failure: (networkExceptions) {
-     showToast(NetworkExceptions.getErrorMessage(networkExceptions), AppColor.movee);
+     showToast(NetworkExceptions.getErrorMessage(networkExceptions), AppColor.softMovee);
         // emit(FailureState(errorMessage: NetworkExceptions.getErrorMessage(networkExceptions)));
   },);
-}else{showToast("at least one field not valid", AppColor.amber);
+}else{showToast("at least one field not valid", AppColor.softMovee);
 }
 
 }

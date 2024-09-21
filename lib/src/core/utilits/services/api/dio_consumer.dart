@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'dart:developer';
 import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 import 'package:flutter/foundation.dart';
@@ -38,13 +40,20 @@ final LogInterceptor logInterceptor;
       {Map<String, dynamic>? queryParameters,
       Map<String, String>? headers}) async {
 
-      final response = await client.get(
+     
+            final response = await client.get(
         path,
         queryParameters: queryParameters,
         options: Options(
           headers: headers,
         ),
       );
+
+    
+
+    
+
+      
       return response.data;
   
   }
@@ -53,6 +62,7 @@ final LogInterceptor logInterceptor;
   Future<dynamic> post(String path,
       {Map<String, dynamic>? body,
       bool formDataIsEnabled = false,
+      FormData? formDate,
       Map<String, String>? headers,
       Map<String, dynamic>? queryParameters}) async {
       final response = await client.post(path,
