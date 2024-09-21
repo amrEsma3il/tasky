@@ -7,7 +7,7 @@ class TaskInitial extends TaskState {}
 class TaskLoading extends TaskState {}
 
 class TaskLoaded extends TaskState {
-  final List<Task?> todos;
+  final List<Task> todos;
   final bool hasReachedMax;
   final int pageLength;
 
@@ -29,3 +29,4 @@ class TodoFailure extends TaskState {
 }
 
 class TodoEmpty extends TaskState {}
+// class TodoEmpty extends TaskState {}

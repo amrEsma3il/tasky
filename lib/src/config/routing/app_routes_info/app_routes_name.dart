@@ -2,7 +2,11 @@ class AppRouteName {
   static const String splash = "/";
   static const String onboarding = "/onboarding";
   static const String login = "/login";
-   static const String taskPage = "/taskPage";
+   static const String taskPage = "/taskPage";//TaskDetails
+
+   static const String taskDetails= "/taskDetails";//TaskDetails
+      static const String addTask= "/addTask";//TaskDetails
+
 
   // static const String moshaf = "/moshaf";
   // static const String bookmark = "/bookmark";

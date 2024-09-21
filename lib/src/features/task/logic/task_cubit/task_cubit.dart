@@ -23,18 +23,20 @@ class TaskCubit extends Cubit<TaskState> {
 
      static TaskCubit get(BuildContext context)=>BlocProvider.of<TaskCubit>(context);
 
-  Future<void> fetchTodos({bool isRefresh = false,String status="all"}) async {
+  Future<void> fetchTodos({bool isRefresh = false,String status="all",bool filter=false}) async {
 
-     List<Task?> cachedTodos =
+     List<Task> cachedTodos =
               hive.box('todos').get('todos', defaultValue: <Task>[]);
 
     if (state is TaskLoading) return;
-    if (isRefresh) {
+    if (isRefresh ) {
       page = 1;
       emit(TaskInitial());
     }
 
- if (cachedTodos.isEmpty) {
+
+
+ if (cachedTodos.isEmpty || filter) {
    emit(TaskLoading());
  }   
 
@@ -57,11 +59,16 @@ class TaskCubit extends Cubit<TaskState> {
 
           //filter tasks by status
           if (status!="all") {
-            todos= todos.where((todo) => todo!.status.toLowerCase() == status).toList();
+            todos= todos.where((todo) => todo.status.toLowerCase() == status).toList();
 
           }
-            
-          emit(TaskLoaded(todos: todos, hasReachedMax: todos.length < 20,pageLength:pageLength ));
+            if (todos.isEmpty) {
+              emit(TodoEmpty());
+            }else{
+                        emit(TaskLoaded(todos: todos.toSet().toList(), hasReachedMax: todos.length < 20,pageLength:pageLength ));
+
+            }
+
         }
         page++;
       },
@@ -90,7 +97,7 @@ class TaskCubit extends Cubit<TaskState> {
     await fetchTodos(isRefresh: true);
   }
 
- filterTasksByStatus(String status){
+ filterTasksByStatus(String status,bool filter){
   fetchTodos(status: status);
  
  }

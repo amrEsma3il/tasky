@@ -13,7 +13,7 @@ class CustomTextField extends StatelessWidget {
   int? maxLines;
  final Color textColor;
   String? hintText;
-  double? width,height,paddingBottom,paddingTop,radius;
+  double? width,height,paddingBottom,paddingTop,paddingLeft,radius;
   final bool? obscureText;
   void Function(String)? onChanged;
   void Function()? onTap;
@@ -30,6 +30,7 @@ class CustomTextField extends StatelessWidget {
     this.hintText,
     this.textColor=Colors.black,
     this.paddingTop=15,
+    this.paddingLeft=10,
     this.maxLines=1,
    required this.controller,
      this.keyBoardType=TextInputType.text,
@@ -55,7 +56,7 @@ class CustomTextField extends StatelessWidget {
             
           
             borderRadius: BorderRadius.circular(radius??10.r),
-        border: Border.all(width:1,color: AppColor.softGray)),
+        border: Border.all(width:1,color: AppColor.gray.withOpacity(.6))),
       
       child: TextFormField(
         obscureText: obscureText??false,
@@ -80,10 +81,9 @@ class CustomTextField extends StatelessWidget {
        decoration: InputDecoration(
         constraints: BoxConstraints(maxHeight: height!,maxWidth: width!),
         
-        contentPadding:  EdgeInsets.fromLTRB(10, paddingTop!, 5, paddingBottom!),
+        contentPadding:  EdgeInsets.fromLTRB(paddingLeft!, paddingTop!, 5, paddingBottom!),
          hintText: hintText,
-         hintStyle:  TextStyles.font13GrayRegular.copyWith(color: AppColor.gray,
-          fontSize: 16,fontFamily: "regular",),
+         hintStyle:  TextStyles.font13GrayRegular,
          suffixIcon:  suffiWidget,
          prefixIcon: prefixWidget,
              border: InputBorder.none,

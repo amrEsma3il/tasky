@@ -49,12 +49,6 @@ final LogInterceptor logInterceptor;
         ),
       );
 
-      if (response.statusCode==401) {
-        log("status code is 401");
-        log(response.data);
-      
-      }
-          
     
 
     
@@ -68,6 +62,7 @@ final LogInterceptor logInterceptor;
   Future<dynamic> post(String path,
       {Map<String, dynamic>? body,
       bool formDataIsEnabled = false,
+      FormData? formDate,
       Map<String, String>? headers,
       Map<String, dynamic>? queryParameters}) async {
       final response = await client.post(path,
