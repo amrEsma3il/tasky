@@ -271,31 +271,31 @@ PriorityCubit.get(context).setPriority(capitalize(task!.priority));
                                       boxShadow: [
                                         BoxShadow(
                                           color: AppColor.gray.withOpacity(
-                                              0.4), // Shadow color with some transparency
-                                          blurRadius: 8, // Amount of blur
+                                              0.4), 
+                                          blurRadius: 8, 
                                           offset: const Offset(2,
-                                              4), // X and Y offset of the shadow
+                                              4), 
                                         ),
                                          BoxShadow(
                                           color:Colors.black.withOpacity(
-                                              0.5), // Shadow color with some transparency
-                                          blurRadius: 8, // Amount of blur
+                                              0.5),
+                                          blurRadius: 8, 
                                           offset: const Offset(2,
-                                              4), // X and Y offset of the shadow
+                                              4), 
                                         ),
                                         BoxShadow(
                                           color: AppColor.gray.withOpacity(
-                                              0.4), // Shadow color with some transparency
-                                          blurRadius: 8, // Amount of blur
+                                              0.4),
+                                          blurRadius: 8, 
                                           offset: const Offset(2,
-                                              4), // X and Y offset of the shadow
+                                              4), 
                                         ),
                                         BoxShadow(
                                           color: AppColor.gray.withOpacity(
-                                              0.4), // Shadow color with some transparency
-                                          blurRadius: 8, // Amount of blur
+                                              0.4),
+                                          blurRadius: 8, 
                                           offset: const Offset(2,
-                                              4), // X and Y offset of the shadow
+                                              4), 
                                         ),
                                       ]),
                                   child: Column(
@@ -355,33 +355,3 @@ PriorityCubit.get(context).setPriority(capitalize(task!.priority));
 }
 
 
-
-
-
-
-
-
-
-// class AddImageComponent extends StatelessWidget {
-//   final void Function()? onTap;
-//   final String? imagePath;
-
-//   const AddImageComponent({Key? key, this.onTap, this.imagePath}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return GestureDetector(
-//       onTap: onTap,
-//       child: Container(
-//         padding: EdgeInsets.all(12),
-//         decoration: BoxDecoration(
-//           border: Border.all(color: Colors.purple),
-//           borderRadius: BorderRadius.circular(12),
-//         ),
-//         child: imagePath == null
-//             ? Icon(Icons.add_a_photo)
-//             : Image.file(File(imagePath!)),
-//       ),
-//     );
-//   }
-// }

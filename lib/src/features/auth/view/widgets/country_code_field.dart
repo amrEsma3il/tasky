@@ -8,11 +8,12 @@ import '../../../../config/theme/text_styles/styles.dart';
 import '../../../../core/constants/colors.dart';
 import '../../logic/login_cubit/login_cubit.dart';
 import '../../logic/login_cubit/login_state.dart';
-import '../../logic/login_cubit/padding_cubit/pading_cubit.dart';
+import '../../logic/padding_cubit/pading_cubit.dart';
 
 class PhoneInputField extends StatelessWidget {
-  const PhoneInputField({super.key});
-
+  const PhoneInputField({super.key, this.controller, this.onChanged});
+final PhoneController? controller;
+final dynamic Function(PhoneNumber)? onChanged;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,11 +21,11 @@ class PhoneInputField extends StatelessWidget {
       width: 326.w,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.r),
-          border: Border.all(width: 1, color: AppColor.softGray)),
+          border: Border.all(width: 1, color:  AppColor.gray.withOpacity(.6))),
       child: BlocBuilder<PaddingCubit, double>(
         builder: (context, state) {
           return PhoneFormField(
-            controller:  LoginCubit.get(context).phoneNoController,
+            controller:  controller,
             decoration: InputDecoration(
               constraints: BoxConstraints(maxHeight: 50.h, maxWidth: 326.w),
               contentPadding: EdgeInsets.fromLTRB(35.w, state.h, 5.w,
@@ -49,24 +50,7 @@ class PhoneInputField extends StatelessWidget {
             ]),
             countrySelectorNavigator: const CountrySelectorNavigator.page(),
             
-            onChanged: (phoneNumber) {
-              print("changes");
-               LoginCubit.get(context).phoneNoController.value=phoneNumber;
-              print("phone num ${phoneNumber.nsn}");
-              print("phone num from controller${  LoginCubit.get(context).phoneNoController.value.nsn}");
-              if ((phoneNumber.isValid()) ||
-                  (phoneNumber.nsn.trim().isNotEmpty)) {
-                print("Phone number is valid");
-              PaddingCubit.get(context).changePadding(14.4);
-                // Add further logic for valid number
-              } else {
-              PaddingCubit.get(context).changePadding(31);
-              }
-              // if (phoneNumber.nsn.trim().isNotEmpty){
-              //   print("Invalid mobile phone number");
-              //   // Add logic for invalid number
-              // }
-            },
+            onChanged: onChanged,
             enabled: true,
             isCountrySelectionEnabled: true,
             isCountryButtonPersistent: true,

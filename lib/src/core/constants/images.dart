@@ -4,6 +4,8 @@ class AppImages {
 
   static const String splash = '$rootImages/splash.png';
   static const String onboardingBg = '$rootImages/onboarding_bg.png';
+
+    static const String registerBg = '$rootImages/register_bg.png';
   static const String arrowLeft = '$rootImages/arrow_left.png';
 //   static const String headerImage = '$rootImages/header_image.png';
 //   static const String home = '$rootImages/home.png';

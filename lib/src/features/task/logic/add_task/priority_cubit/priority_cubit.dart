@@ -27,27 +27,27 @@ final GlobalKey cardKey = GlobalKey();
   }
 
 
-   bool checkIfTapIsInsideContainer(TapUpDetails details) {
-    // Get the RenderBox of the container
-    final RenderBox renderBox =
-      cardKey.currentContext?.findRenderObject() as RenderBox;
+  //  bool checkIfTapIsInsideContainer(TapUpDetails details) {
+  //   // Get the RenderBox of the container
+  //   final RenderBox renderBox =
+  //     cardKey.currentContext?.findRenderObject() as RenderBox;
 
-    // Get the position and size of the container
-    final Offset containerPosition = renderBox.localToGlobal(Offset.zero);
-    final Size containerSize = renderBox.size;
+  //   // Get the position and size of the container
+  //   final Offset containerPosition = renderBox.localToGlobal(Offset.zero);
+  //   final Size containerSize = renderBox.size;
 
-    // Get the tapped position
-    final Offset tapPosition = details.globalPosition;
+  //   // Get the tapped position
+  //   final Offset tapPosition = details.globalPosition;
 
-    // Check if the tap is inside the container's boundaries
-    if (tapPosition.dx >= containerPosition.dx &&
-        tapPosition.dx <= containerPosition.dx + containerSize.width &&
-        tapPosition.dy >= containerPosition.dy &&
-        tapPosition.dy <= containerPosition.dy + containerSize.height) {
-    return true;
-    } else {
-      // The tap is outside the container
-     return false;
-    }
-  }
+  //   // Check if the tap is inside the container's boundaries
+  //   if (tapPosition.dx >= containerPosition.dx &&
+  //       tapPosition.dx <= containerPosition.dx + containerSize.width &&
+  //       tapPosition.dy >= containerPosition.dy &&
+  //       tapPosition.dy <= containerPosition.dy + containerSize.height) {
+  //   return true;
+  //   } else {
+  //     // The tap is outside the container
+  //    return false;
+  //   }
+  // }
 }

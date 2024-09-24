@@ -6,6 +6,9 @@ class AppRouteName {
 
    static const String taskDetails= "/taskDetails";//TaskDetails
       static const String addTask= "/addTask";//TaskDetails
+        static const String profile= "/profile";//TaskDetails
+                static const String register= "/register";//TaskDetails
+
 
 
   // static const String moshaf = "/moshaf";

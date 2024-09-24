@@ -48,10 +48,16 @@ const factory NetworkExceptions.forbidden(String reason) = Forbidden;
     const factory NetworkExceptions.badCertificateError() = BadCertificateError;
       const factory NetworkExceptions.unknownError() = UnknownError;
 
+
+//TODO:fix issue with this function
   static NetworkExceptions handleResponse(Response? response) {
     ErrorModel errorEntity =  ErrorModel.fromJson(response?.data);
     String errorString = "${errorEntity.message}";
     int statusCode = response?.statusCode ?? 0;
+
+
+    log(statusCode.toString());
+    log(errorString);
     switch (statusCode) {
       case 400:
       case 401:
@@ -83,9 +89,13 @@ const factory NetworkExceptions.forbidden(String reason) = Forbidden;
 
   static NetworkExceptions getDioException(error) {
     if (error is Exception) {
+
+
+      
       try {
         NetworkExceptions networkExceptions;
         if (error is DioException) {
+          log(error.type.toString());
           switch (error.type) {
             case DioExceptionType.cancel:
               networkExceptions = const NetworkExceptions.requestCancelled();
@@ -100,6 +110,7 @@ const factory NetworkExceptions.forbidden(String reason) = Forbidden;
               networkExceptions = const NetworkExceptions.sendTimeout();
               break;
             case DioExceptionType.badResponse:
+            log(error.response.toString());
               networkExceptions = NetworkExceptions.handleResponse(error.response);
               break;
             case DioExceptionType.sendTimeout:
@@ -115,14 +126,17 @@ const factory NetworkExceptions.forbidden(String reason) = Forbidden;
               
           }
         } else if (error is SocketException) {
+          log("SocketException");
           networkExceptions = const NetworkExceptions.noInternetConnection();
         } else {
+             log("unexpectedError");
           networkExceptions = const NetworkExceptions.unexpectedError();
         }
         return networkExceptions;
       } on FormatException catch (_) {
         return const NetworkExceptions.formatException();
       } catch (_) {
+         log("_unexpectedError");
         return const NetworkExceptions.unexpectedError();
       }
     } else {
@@ -131,6 +145,7 @@ const factory NetworkExceptions.forbidden(String reason) = Forbidden;
         log("from exception file : error is  =>   unableToProcess");
         return const NetworkExceptions.unableToProcess();
       } else {
+         log("end unexpectedError");
         return const NetworkExceptions.unexpectedError();
       }
     }

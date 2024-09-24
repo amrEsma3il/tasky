@@ -1,14 +1,14 @@
-class UserModel {
+class LoginModel {
   String phone;
   String password;
 
-  UserModel({
+  LoginModel({
     required this.phone,
     required this.password,
   });
 
- factory UserModel.fromJson(Map<String, dynamic> json) {
-    return UserModel(
+ factory LoginModel.fromJson(Map<String, dynamic> json) {
+    return LoginModel(
       phone: json['phone'],
       password: json['password'],
     );

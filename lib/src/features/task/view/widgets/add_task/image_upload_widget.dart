@@ -84,7 +84,7 @@ class ImagePickerWidget extends StatelessWidget {
                                             .clearImage();
                                       },
                                       icon: const Icon(
-                                        Icons.delete_outline,
+                                          Icons.delete,
                                         size: 55,
                                         color: AppColor.gray,
                                       ))
