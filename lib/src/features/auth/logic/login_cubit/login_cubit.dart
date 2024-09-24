@@ -14,6 +14,7 @@ import '../../../../core/constants/colors.dart';
 import '../../../../core/errors/network_exceptions.dart';
 import '../../../task/logic/task_cubit/task_cubit.dart';
 import '../../data/repo/auth_repo.dart';
+import '../padding_cubit/pading_cubit.dart';
 import 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
@@ -26,45 +27,8 @@ TextEditingController passwordController=TextEditingController();
 
 
 Future login({required String phone,required String password,})async{
-
-// var headers = {
-//   'Content-Type': 'application/json',
-//   'Authorization': '••••••'
-// };
-// var response =await http.post(Uri.parse('https://todo.iraqsapp.com/auth/login'),
-// body:{
-//   "phone": "01009931326",
-//   "password": "123456"
-// }  );
-// // request.body = json.encode({
-// //   "phone": "01009931326",
-// //   "password": "123456"
-// // });
-// // request.headers.addAll(headers);
-
-// // http.StreamedResponse response = await request.send();
-
-// if (response.statusCode == 200|| response.statusCode == 201) {
-// TokenModel  data=TokenModel.fromJson(jsonDecode(response.body));
-//   // print(await response.stream.bytesToString());
-//   log("success");
-//   log("id : ${data.id}");
-//     log("access token : ${data.accessToken}");
-//       log("refresh token : ${data.refreshToken}");
-//   showToast("success login", AppColor.movee);
-//   Future.delayed(Duration(seconds: 2));
-//   Get.offNamed(AppRouteName.home);
-// }
-// else {
-//   log(response.reasonPhrase.toString());
-//     showToast("failure", AppColor.movee);
-
-// }
-
-
-  // log(phone);
 if (formstate.currentState!.validate()){
-  print("pass ${password}");
+  // print("pass ${password}");
   var dataState=await authRepo.login(  phone: phone,
   password:password);
   dataState.when(success: (data) {
@@ -76,13 +40,11 @@ if (formstate.currentState!.validate()){
         Future.delayed(const Duration(seconds: 2));
       
 
-        Get.offNamed(AppRouteName.taskPage)!.then((value) {
-          
-        },);
+        Get.offNamed(AppRouteName.taskPage);
     
   }, failure: (networkExceptions) {
      showToast(NetworkExceptions.getErrorMessage(networkExceptions), AppColor.softMovee);
-        // emit(FailureState(errorMessage: NetworkExceptions.getErrorMessage(networkExceptions)));
+       
   },);
 }else{showToast("at least one field not valid", AppColor.softMovee);
 }
@@ -95,5 +57,14 @@ if (formstate.currentState!.validate()){
 
     passwordController.text = "";
   }
+
+
+
+onChanged  ( PhoneNumber phoneNumber) {
+             
+             phoneNoController.value=phoneNumber;
+           
+        
+            }
   
 }

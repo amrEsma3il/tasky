@@ -11,6 +11,7 @@ import '../../../../core/constants/colors.dart';
 import '../../../../core/errors/network_exceptions.dart';
 import '../../../../core/utilits/functions/toast_message.dart';
 import '../../../auth/logic/logout_cubit/log_out_cubit.dart';
+import '../../../auth/logic/profile_cubit/profile_cubit.dart';
 import '../../data/models/task_model.dart';
 import '../../data/repo/task_repo.dart';
 import '../../logic/change_status_cubit/change_status_cubit.dart';
@@ -35,7 +36,11 @@ class TaskPage extends StatelessWidget {
                 fontSize: 24.sp,
                 fontFamily: "DMSans")),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.person_outline)),
+          IconButton(onPressed: () {
+ProfileCubit.get(context).fetchUserProfile();
+
+
+          }, icon: const Icon(Icons.person_outline)),
           IconButton(
             icon: Icon(
               Icons.logout,

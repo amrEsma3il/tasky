@@ -8,10 +8,13 @@ import 'src/core/utilits/services/api/app_interceptors.dart';
 import 'src/core/utilits/services/api/dio_consumer.dart';
 import 'src/features/auth/data/data_sources/remote_data_sources/auth_remote_data_source.dart';
 import 'src/features/auth/data/repo/auth_repo.dart';
+import 'src/features/auth/logic/experience_level_cubit/experience_level_cubit.dart';
 import 'src/features/auth/logic/login_cubit/login_cubit.dart';
-import 'src/features/auth/logic/login_cubit/padding_cubit/pading_cubit.dart';
-import 'src/features/auth/logic/login_cubit/password_cubit/password_cubit.dart';
+import 'src/features/auth/logic/padding_cubit/pading_cubit.dart';
+import 'src/features/auth/logic/password_cubit/password_cubit.dart';
 import 'src/features/auth/logic/logout_cubit/log_out_cubit.dart';
+import 'src/features/auth/logic/profile_cubit/profile_cubit.dart';
+import 'src/features/auth/logic/register_cubit/register_cubit.dart';
 import 'src/features/onboarding/logic/onboarding_cubit/onboarding_cubit.dart';
 import 'src/features/splash/logic/splash_cubit/splash_cubit.dart';
 import 'src/features/task/data/data_sources/task_remote_data_source.dart';
@@ -36,11 +39,11 @@ Future<void> init() async {
 
 
   serviceLocator
-      .registerFactory<DeleteTaskCubit>(() => DeleteTaskCubit(serviceLocator(),serviceLocator()));
+      .registerFactory<DeleteTaskCubit>(() => DeleteTaskCubit(serviceLocator(),serviceLocator(),serviceLocator()));
 
 
   serviceLocator
-      .registerFactory<UpdateTaskCubit>(() => UpdateTaskCubit(serviceLocator(),serviceLocator()));
+      .registerFactory<UpdateTaskCubit>(() => UpdateTaskCubit(serviceLocator(),serviceLocator(),serviceLocator()));
 
   serviceLocator.registerFactory<PriorityCubit>(() => PriorityCubit());
 
@@ -60,15 +63,22 @@ Future<void> init() async {
 
   serviceLocator.registerFactory<ChangeStatusCubit>(() => ChangeStatusCubit());
 
+   serviceLocator.registerFactory<ExperienceCubit>(() => ExperienceCubit());
+
   serviceLocator.registerFactory<SplashCubit>(() => SplashCubit());
   serviceLocator.registerFactory<LoginCubit>(
       () => LoginCubit(authRepo: serviceLocator()));
 
   serviceLocator.registerFactory<LogoutCubit>(
       () => LogoutCubit(serviceLocator(), serviceLocator())); //
+  serviceLocator.registerFactory<RegisterCubit>(
+      () => RegisterCubit(serviceLocator()));
+
+        serviceLocator.registerFactory<ProfileCubit>(
+      () => ProfileCubit(serviceLocator())); 
 
   serviceLocator.registerFactory<TaskCubit>(
-      () => TaskCubit(hive: serviceLocator(), taskRepo: serviceLocator())); //
+      () => TaskCubit(hive: serviceLocator(), taskRepo: serviceLocator(),serviceLocator())); //
 
   serviceLocator.registerFactory<PaddingCubit>(() => PaddingCubit());
 
