@@ -34,13 +34,19 @@ class RegisterCubit extends Cubit<RegisterState> {
 
     dataState.when(
       success: (data) {
-        showToast(data, AppColor.softMovee);
+
+        if (formstate.currentState!.validate()) {
+          showToast(data, AppColor.softMovee);
 
         clearTextInTextField();
 
         Future.delayed(const Duration(seconds: 2));
 
         Get.offNamed(AppRouteName.login);
+        } else{showToast("at least one field not valid", AppColor.softMovee);
+}
+
+        
       },
       failure: (networkExceptions) {
 
