@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tasky/src/features/task/logic/task_datails_cubit/task_datails_cubit.dart';
 import 'src/core/utilits/services/api/app_interceptors.dart';
@@ -87,10 +88,10 @@ Future<void> init() async {
 //Repos
   serviceLocator.registerLazySingleton(() => AuthRepo(
       authRemoteDataSource: serviceLocator(),
-      sharedPreferences: serviceLocator()));
+      sharedPreferences: serviceLocator(),serviceLocator()));
 
   serviceLocator.registerLazySingleton(
-      () => TaskRepo(taskRemoteDataSource: serviceLocator()));
+      () => TaskRepo(taskRemoteDataSource: serviceLocator(),serviceLocator(),serviceLocator(),serviceLocator()));
 
 //
 //DataSources
@@ -102,7 +103,7 @@ Future<void> init() async {
       () => TaskRemoteDataSource(dioConsumer: serviceLocator()));
 
   //External
-
+serviceLocator.registerLazySingleton(() => InternetConnectionChecker());
   serviceLocator.registerLazySingleton(() => DioConsumer(
       client: serviceLocator(),
       appIntercepters: serviceLocator(),
