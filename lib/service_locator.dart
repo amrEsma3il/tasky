@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tasky/src/features/task/logic/task_datails_cubit/task_datails_cubit.dart';
 import 'src/core/utilits/services/api/app_interceptors.dart';
 import 'src/core/utilits/services/api/dio_consumer.dart';
+import 'src/core/utilits/services/network/network_info.dart';
 import 'src/features/auth/data/data_sources/remote_data_sources/auth_remote_data_source.dart';
 import 'src/features/auth/data/repo/auth_repo.dart';
 import 'src/features/auth/logic/experience_level_cubit/experience_level_cubit.dart';
@@ -103,6 +104,8 @@ Future<void> init() async {
       () => TaskRemoteDataSource(dioConsumer: serviceLocator()));
 
   //External
+serviceLocator.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(serviceLocator()));
+
 serviceLocator.registerLazySingleton(() => InternetConnectionChecker());
   serviceLocator.registerLazySingleton(() => DioConsumer(
       client: serviceLocator(),
