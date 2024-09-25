@@ -62,7 +62,8 @@ class Login extends StatelessWidget {
                         SizedBox(
                           height: 22.h,
                         ),
-                         PhoneInputField(controller: LoginCubit.get(context).phoneNoController,onChanged: LoginCubit.get(context).onChanged,),
+                         PhoneInputField(width: 326.w,
+                          controller: LoginCubit.get(context).phoneNoController,onChanged: LoginCubit.get(context).onChanged,),
                         SizedBox(
                           height: 15.h,
                         ),

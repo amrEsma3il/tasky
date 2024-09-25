@@ -1,6 +1,7 @@
 abstract class LoginState{}
 
 class InitState extends LoginState{}
+class LoadingState extends LoginState{}
 class SuccessState extends LoginState{
 final String successMessage;
 

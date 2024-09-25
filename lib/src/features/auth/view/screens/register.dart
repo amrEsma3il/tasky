@@ -81,7 +81,7 @@ class Register extends StatelessWidget {
                                 SizedBox(
                                   height: 15.h,
                                 ),
-                                PhoneInputField(
+                                PhoneInputField(width: Get.width,
                                   controller: RegisterCubit.get(context)
                                       .phoneNoController,
                                   onChanged:

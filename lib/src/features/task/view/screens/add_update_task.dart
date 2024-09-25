@@ -354,4 +354,3 @@ PriorityCubit.get(context).setPriority(capitalize(task!.priority));
   }
 }
 
-

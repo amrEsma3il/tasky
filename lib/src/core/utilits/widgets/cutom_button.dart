@@ -5,6 +5,7 @@ import '../../constants/colors.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
+  final bool isLoading;
   final String? icon;
   final VoidCallback? onPressed;
   final Color? color;
@@ -22,7 +23,7 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
     this.color , // default color
     this.borderRadius ,
-    this.padding = 0,
+    this.padding = 0,  this.isLoading=false,
   });
 
   @override
@@ -39,7 +40,7 @@ class CustomButton extends StatelessWidget {
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
-          children: [
+          children: [isLoading?const CircularProgressIndicator():
             Text(
               text,
               style:  TextStyle(

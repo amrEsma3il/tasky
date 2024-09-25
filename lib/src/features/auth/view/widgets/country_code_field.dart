@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:phone_form_field/phone_form_field.dart';
-import '../../../../../service_locator.dart' as di;
 
 import '../../../../config/theme/text_styles/styles.dart';
 import '../../../../core/constants/colors.dart';
-import '../../logic/login_cubit/login_cubit.dart';
-import '../../logic/login_cubit/login_state.dart';
 import '../../logic/padding_cubit/pading_cubit.dart';
 
 class PhoneInputField extends StatelessWidget {
-  const PhoneInputField({super.key, this.controller, this.onChanged});
+  const PhoneInputField({super.key, this.controller, this.onChanged, required this.width});
 final PhoneController? controller;
+final double width;
 final dynamic Function(PhoneNumber)? onChanged;
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 50.h,
-      width: 326.w,
+          width: width,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.r),
           border: Border.all(width: 1, color:  AppColor.gray.withOpacity(.6))),

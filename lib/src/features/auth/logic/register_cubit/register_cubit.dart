@@ -30,29 +30,28 @@ class RegisterCubit extends Cubit<RegisterState> {
   TextEditingController yearsExceprinceController = TextEditingController();
 
   registerUser({required UserModel user}) async {
-    var dataState = await authRepo.register(user);
+    if (formstate.currentState!.validate()) {
+        var dataState = await authRepo.register(user);
 
     dataState.when(
       success: (data) {
 
-        if (formstate.currentState!.validate()) {
-          showToast(data, AppColor.softMovee);
+        
+        showToast(data, AppColor.softMovee);
 
         clearTextInTextField();
 
         Future.delayed(const Duration(seconds: 2));
 
         Get.offNamed(AppRouteName.login);
-        } else{showToast("at least one field not valid", AppColor.softMovee);
-}
-
-        
       },
       failure: (networkExceptions) {
 
         showToast(NetworkExceptions.getErrorMessage(networkExceptions), Colors.white24);
       },
     );
+    } else{showToast("at least one field not valid", AppColor.softMovee);}
+  
   }
 
   void clearTextInTextField() {
