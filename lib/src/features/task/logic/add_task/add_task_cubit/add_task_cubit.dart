@@ -7,12 +7,10 @@ import 'package:intl/intl.dart';
 
 import '../../../../../config/routing/app_routes_info/app_routes_name.dart';
 import '../../../../../core/constants/colors.dart';
-import '../../../../../core/constants/colors.dart';
 import '../../../../../core/errors/network_exceptions.dart';
 import '../../../../../core/utilits/functions/toast_message.dart';
 import '../../../data/models/add_task_model.dart';
 import '../../../data/repo/task_repo.dart';
-import '../../task_cubit/task_cubit.dart';
 import '../image_cubit.dart';
 import '../priority_cubit/priority_cubit.dart';
 import 'add_task_state.dart';

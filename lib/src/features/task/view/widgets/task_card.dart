@@ -10,8 +10,6 @@ import '../../../../core/constants/colors.dart';
 import '../../../../core/utilits/services/api/end_points.dart';
 import '../../data/models/task_model.dart';
 import '../../logic/delete_cubit/delete_task_cubit.dart';
-import '../../logic/update_cubit/edit_task_cubit.dart';
-import '../screens/task_page.dart';
 import 'priority_component.dart';
 import 'status_component.dart';
 
@@ -129,7 +127,8 @@ final int index;
               child: Text('Edit',style:  TextStyle(fontWeight: FontWeight.w500,fontSize: 16.sp,color: AppColor.orange),),
             ),
           ],
-          icon: const Icon(Icons.more_vert), // Icon you press to show the menu
+          icon:  Icon(Icons.more_vert,                          size: 18.w,
+), // Icon you press to show the menu
         ),
       
             // IconButton(

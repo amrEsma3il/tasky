@@ -23,10 +23,10 @@ class AuthRemoteDataSource {
         as Map<String, dynamic>);
   }
 
-  Future<TokenModel> register(UserModel user) async{
-
-    Map<String,dynamic> response=await dioConsumer.post(EndPoints.register,body: user.toJson());
-return TokenModel.fromJson(response);
+  Future<TokenModel> register(UserModel user) async {
+    Map<String, dynamic> response =
+        await dioConsumer.post(EndPoints.register, body: user.toJson());
+    return TokenModel.fromJson(response);
   }
 
   Future<ProfileModel> profile() async {
@@ -34,7 +34,6 @@ return TokenModel.fromJson(response);
 
     return ProfileModel.fromJson(response);
   }
-
 
   Future<bool> logOut() async {
     TokenModel authenticatedUser = TokenModel.fromJson(
@@ -45,23 +44,4 @@ return TokenModel.fromJson(response);
 
     return response['success'];
   }
-
-  // Future<DataState<String>> refreshToken(
-  //     {required String refreshToken, required String id}) async {
-  //   try {
-  //     final response = await client.get(EndPoints.refreshToken,
-  //         queryParameters: {'token': refreshToken});
-  //     sharedPreferences.setString(
-  //         "token_info",
-  //         jsonEncode(TokenModel(
-  //                 id: id,
-  //                 refreshToken: refreshToken,
-  //                 accessToken: response.data['access_token'])
-  //             .toJson()));
-  //     return const DataState.success("");
-  //   } catch (e) {
-  //     return const DataState.failure(
-  //         NetworkExceptions.forbidden('feailed refresh'));
-  //   }
-  // }
 }

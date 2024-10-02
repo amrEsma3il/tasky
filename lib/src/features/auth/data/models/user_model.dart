@@ -15,7 +15,6 @@ class UserModel {
     required this.level,
   });
 
-  // Factory method to create an instance from a JSON map
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
       phone: json['phone'],
@@ -27,7 +26,6 @@ class UserModel {
     );
   }
 
-  // Method to convert an instance to a JSON map
   Map<String, dynamic> toJson() {
     return {
       'phone': phone,

@@ -7,7 +7,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:async';
 
 import '../../../../core/errors/network_exceptions.dart';
-import '../../../auth/data/models/login/token_model.dart';
 import '../../data/models/task_model.dart';
 import '../../data/repo/task_repo.dart';
 import 'task_state.dart';

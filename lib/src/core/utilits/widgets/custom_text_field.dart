@@ -60,7 +60,7 @@ class CustomTextField extends StatelessWidget {
       
       child: TextFormField(
         obscureText: obscureText??false,
-        style: TextStyle(color: textColor),
+        style: TextStyle(color: textColor,fontSize: 14.sp),
         maxLines: maxLines!,
         controller: controller
         ,
