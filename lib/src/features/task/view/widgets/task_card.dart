@@ -127,7 +127,8 @@ final int index;
               child: Text('Edit',style:  TextStyle(fontWeight: FontWeight.w500,fontSize: 16.sp,color: AppColor.orange),),
             ),
           ],
-          icon: const Icon(Icons.more_vert), // Icon you press to show the menu
+          icon:  Icon(Icons.more_vert,                          size: 18.w,
+), // Icon you press to show the menu
         ),
       
             // IconButton(

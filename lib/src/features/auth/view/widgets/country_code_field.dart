@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:phone_form_field/phone_form_field.dart';
 
 import '../../../../config/theme/text_styles/styles.dart';
@@ -26,6 +25,7 @@ final dynamic Function(PhoneNumber)? onChanged;
           return PhoneFormField(
             controller:  controller,
             decoration: InputDecoration(
+              
               constraints: BoxConstraints(maxHeight: 50.h, maxWidth: 326.w),
               contentPadding: EdgeInsets.fromLTRB(35.w, state.h, 5.w,
                   3.h), // padding is 30 when error ..normal 14
@@ -53,11 +53,11 @@ final dynamic Function(PhoneNumber)? onChanged;
             enabled: true,
             isCountrySelectionEnabled: true,
             isCountryButtonPersistent: true,
-            countryButtonStyle: const CountryButtonStyle(
+            countryButtonStyle:  CountryButtonStyle(
                 showDialCode: true,
                 showIsoCode: false,
                 showFlag: true,
-                flagSize: 16),
+                flagSize: 16.w),
           );
         },
       ),

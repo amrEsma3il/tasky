@@ -12,16 +12,19 @@ class OnBoardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(width: Get.width),
-            const OnboardingImageComponent(),
-            SizedBox(height: 2.h),
-            const OnboardingTitleComponent(),
-            SizedBox(height: 38.h),
-            const OnboardingButtonComponent(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(width: Get.width),
+              const OnboardingImageComponent(),
+              SizedBox(height: 2.h),
+              const OnboardingTitleComponent(),
+              SizedBox(height: 38.h),
+              const OnboardingButtonComponent(),
+               SizedBox(height: 35.h),
+            ],
+          ),
         ),
       ),
     );

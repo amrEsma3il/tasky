@@ -5,9 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../../core/constants/images.dart';
-
-class LoginHeaderComponent extends StatelessWidget {
-  const LoginHeaderComponent({super.key});
+class LoginHeader extends StatelessWidget {
+  const LoginHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,18 +14,16 @@ class LoginHeaderComponent extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Image.asset(
+          AppImages.onboardingBg,
+          width: Get.width,
+          height:Get.height>842?438.h :560.h,
           colorBlendMode: BlendMode.modulate,
           color: Colors.white,
           fit: BoxFit.cover,
-          AppImages.onboardingBg,
-          width: Get.width,
-          height: 438.h,
         ),
         Padding(
-          padding: EdgeInsets.fromLTRB(28.w, 0, 0, 0),
-          child: Text(
+   padding: EdgeInsets.fromLTRB(25.w, 0, 20.w, 0),          child: Text(
             "Login",
-            textAlign: TextAlign.left,
             style: TextStyle(
               fontSize: 24.sp,
               fontWeight: FontWeight.w700,

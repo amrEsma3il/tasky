@@ -19,7 +19,7 @@ static ImagePickedCubit get(BuildContext context)=>BlocProvider.of(context);
           await imagePicker.pickImage(source: ImageSource.gallery);
       if (pickedFile != null) {
         imageFile = File(pickedFile.path);
-        log("image name =>   ${imageFile}");
+        log("image name =>   $imageFile");
         emit(imageFile); // Emit the selected image file
       } else {
         emit(null);
