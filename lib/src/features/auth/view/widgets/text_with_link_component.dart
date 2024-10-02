@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/constants/colors.dart';
 
@@ -14,7 +15,7 @@ class TextWithLink extends StatelessWidget {
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(
-        style: const TextStyle(fontSize: 14.0, color: Colors.black),
+        style:  TextStyle(fontSize: 14.sp, color: Colors.black),
         children: <TextSpan>[
            TextSpan(text: txt),
           TextSpan(
