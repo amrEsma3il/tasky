@@ -30,19 +30,21 @@ class StatusComponent extends StatelessWidget {
         break;
       default:
     }
-    return Container(
-      alignment: Alignment.center,
-      
-      width: 55.w,
-      height: 22.h,
-      decoration: BoxDecoration(color: statusColor!.withOpacity(0.12),
-        borderRadius: BorderRadius.circular(5.r)),
-      child: Text(
+    return Expanded(
+      child: Container(
+        alignment: Alignment.center,
         
-        status,
-        textAlign: TextAlign.center,
-        style: TextStyle(
-            color: statusColor, fontSize: 12.sp, fontWeight: FontWeight.w500),
+        // width: 55.w,
+        // height: 22.h,
+        decoration: BoxDecoration(color: statusColor!.withOpacity(0.12),
+          borderRadius: BorderRadius.circular(5.r)),
+        child: Text(
+          
+          status,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+              color: statusColor, fontSize: 12.sp, fontWeight: FontWeight.w500),
+        ),
       ),
     );
   }
