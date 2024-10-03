@@ -35,7 +35,8 @@ class RegisterActions extends StatelessWidget {
                                               .phoneNoController.value.nsn,
                                       password:
                                           registerCubit.passwordController.text,
-                                      experienceYears: int.parse(registerCubit
+                                      experienceYears:registerCubit
+                                          .yearsExceprinceController.text.isEmpty?1: int.parse(registerCubit
                                           .yearsExceprinceController.text),
                                       level: ExperienceCubit.experienceLevel));
                             },
