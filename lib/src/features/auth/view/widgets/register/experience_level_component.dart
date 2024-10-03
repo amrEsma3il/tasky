@@ -35,8 +35,7 @@ class ExperienceLevelComponent extends StatelessWidget {
               state.isOpen ? Icons.expand_less : Icons.expand_more,
               color: Colors.black54,
               size: 36,
-            ),
-          ),
+            ),),
         );
       },
     );

@@ -42,7 +42,7 @@ class TaskPriorityMenu extends StatelessWidget {
                     child: Scrollbar(
                                                          trackVisibility: true,
 
-                      thumbVisibility: true, // Always show the scrollbar
+                      // thumbVisibility: true, // Always show the scrollbar
                       radius: Radius.circular(4.r), // Customize the radius
                       thickness: 13.w, // Customize the width of the scrollbar
                       child: SingleChildScrollView(

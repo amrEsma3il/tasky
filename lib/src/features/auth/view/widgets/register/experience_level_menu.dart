@@ -53,7 +53,7 @@ class ExperienceLevelMenu extends StatelessWidget {
                                   ]),
                               child: Scrollbar(
                                 thickness: 7.w,
-                                   thumbVisibility: true, 
+                                  //  thumbVisibility: true, 
                                    trackVisibility: true,
                                 child: SingleChildScrollView(
                                   child: Column(

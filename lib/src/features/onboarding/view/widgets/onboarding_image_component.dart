@@ -14,7 +14,7 @@ class OnboardingImageComponent extends StatelessWidget {
       AppImages.onboardingBg,
       fit: BoxFit.cover,
       width: Get.width,
-      height: 438.h,
+       height:Get.height>842?438.h :560.h,
     );
   }
 }

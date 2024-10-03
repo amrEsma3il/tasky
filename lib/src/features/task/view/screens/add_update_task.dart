@@ -54,7 +54,7 @@ class AddTask extends StatelessWidget {
                       const SizedBox(height: 20),
                       TaskInputFields(task: task),
                       const SizedBox(height: 16),
-                      const TaskPrioritySelector(),
+                      const Flexible(child: TaskPrioritySelector()),
                       const SizedBox(height: 16),
                       const TaskDueDateField(),
                       const SizedBox(height: 25),

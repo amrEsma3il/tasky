@@ -15,7 +15,9 @@ class RegisterFormFields extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [ CustomTextField(
+      mainAxisSize: MainAxisSize.min,
+      children: [ 
+        CustomTextField(
                                   onChanged: (p0) {},
                                   controller:
                                       RegisterCubit.get(context).nameController,
@@ -51,6 +53,8 @@ class RegisterFormFields extends StatelessWidget {
                                   validator: (val) {
                                     if (val == null || val.isEmpty) {
                                       return "must enter years";
+                                    }else if(val is double){
+ return "must be normal number 0-9";
                                     }
                                     return null;
                                   },
@@ -59,7 +63,8 @@ class RegisterFormFields extends StatelessWidget {
                                   height: 15.h,
                                 ),
 
-                               const ExperienceLevelComponent(),
+
+                               const Flexible(child: ExperienceLevelComponent()),
 
                                 //
                                 SizedBox(

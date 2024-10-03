@@ -23,19 +23,17 @@ class CardInfoComponent extends StatelessWidget {
       key:gestureKey ,
       onTap: onTap,
 
-      child: Expanded(
-        child: Container(
-          margin: EdgeInsets.only(bottom: 10.h),
-          padding: EdgeInsets.fromLTRB(isBordered? 18.w:24.w, 10.h,isBordered? 24.w:20.w, 10.h),
-          width: Get.width,
-          // height: 55.h,
-          decoration: BoxDecoration(border:isBordered? Border.all(color: AppColor.gray.withOpacity(.4),width: 1):null,
-              color:bg?? AppColor.softMovee, borderRadius: BorderRadius.circular(10.r)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [widget,iconWidget],
-          ),
+      child: Container(
+        margin: EdgeInsets.only(bottom: 10.h),
+        padding: EdgeInsets.fromLTRB(isBordered? 18.w:24.w, 10.h,isBordered? 24.w:20.w, 10.h),
+        width: Get.width,
+        height: 55.h,
+        decoration: BoxDecoration(border:isBordered? Border.all(color: AppColor.gray.withOpacity(.4),width: 1):null,
+            color:bg?? AppColor.softMovee, borderRadius: BorderRadius.circular(10.r)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [widget,iconWidget],
         ),
       ),
     );
