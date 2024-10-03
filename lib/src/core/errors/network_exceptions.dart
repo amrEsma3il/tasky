@@ -113,7 +113,7 @@ const factory NetworkExceptions.forbidden(String reason) = Forbidden;
               break;
             case DioExceptionType.badResponse:
             showToast((error.response as Map<String,dynamic>)['message'],AppColor.movee);
-            log(error.response.toString());
+            // log(error.response.toString());
               networkExceptions = NetworkExceptions.handleResponse(error.response);
               break;
             case DioExceptionType.sendTimeout:
@@ -138,8 +138,15 @@ const factory NetworkExceptions.forbidden(String reason) = Forbidden;
         return networkExceptions;
       } on FormatException catch (_) {
         return const NetworkExceptions.formatException();
-      } catch (_) {
-         log("_unexpectedError");
+      } catch (e) {
+        // if (error is DioException) {
+        //   if (error.type==DioExceptionType.badResponse) {
+        //        showToast((error.response as Map<String,dynamic>)['message'],AppColor.movee);
+        //   }
+        // }
+
+        
+         log(e.toString());
         return const NetworkExceptions.unexpectedError();
       }
     } else {
