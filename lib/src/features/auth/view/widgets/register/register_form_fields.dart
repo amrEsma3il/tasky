@@ -53,7 +53,7 @@ class RegisterFormFields extends StatelessWidget {
                                   validator: (val) {
                                     if (val == null || val.isEmpty) {
                                       return "must enter years";
-                                    }else if(val is double){
+                                    }else if(val.contains(".")){
  return "must be normal number 0-9";
                                     }
                                     return null;

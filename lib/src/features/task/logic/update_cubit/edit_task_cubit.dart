@@ -61,7 +61,7 @@ dataState.when(success: (data) {
 
   
 }, failure: (networkExceptions) {
-        showToast(NetworkExceptions.getErrorMessage(networkExceptions),AppColor.amber);
+        // showToast(NetworkExceptions.getErrorMessage(networkExceptions),AppColor.amber);
 },);
 
   }

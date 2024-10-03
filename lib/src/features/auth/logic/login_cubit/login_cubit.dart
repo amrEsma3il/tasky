@@ -43,8 +43,8 @@ class LoginCubit extends Cubit<LoginState> {
         },
         failure: (networkExceptions) {
             emit(FailureState(errorMessage:NetworkExceptions.getErrorMessage(networkExceptions)));
-          showToast(NetworkExceptions.getErrorMessage(networkExceptions),
-              AppColor.softMovee);
+          // showToast(NetworkExceptions.getErrorMessage(networkExceptions),
+          //     AppColor.softMovee);
         },
       );
     } else {

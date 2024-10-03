@@ -70,8 +70,8 @@ class AddTaskCubit extends Cubit<AddTaskState> {
           Get.offNamed(AppRouteName.taskPage);
         },
         failure: (networkExceptions) {
-          showToast(NetworkExceptions.getErrorMessage(networkExceptions),
-              AppColor.softMovee);
+          // showToast(NetworkExceptions.getErrorMessage(networkExceptions),
+          //     AppColor.softMovee);
         },
       );
  

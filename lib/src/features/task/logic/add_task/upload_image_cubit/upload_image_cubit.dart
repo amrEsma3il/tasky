@@ -40,8 +40,8 @@ static UploadImageCubit get(BuildContext context)=>BlocProvider.of<UploadImageCu
                 priority: priority.toLowerCase()),context);
           },
           failure: (networkExceptions) {
-            showToast(NetworkExceptions.getErrorMessage(networkExceptions),
-                AppColor.movee);
+            // showToast(NetworkExceptions.getErrorMessage(networkExceptions),
+            //     AppColor.movee);
           },
         );
       } else {

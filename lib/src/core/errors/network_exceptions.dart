@@ -3,6 +3,8 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import '../constants/colors.dart';
+import '../utilits/functions/toast_message.dart';
 import '../utilits/models/error_model.dart';
 
 part 'network_exceptions.freezed.dart';
@@ -110,6 +112,7 @@ const factory NetworkExceptions.forbidden(String reason) = Forbidden;
               networkExceptions = const NetworkExceptions.sendTimeout();
               break;
             case DioExceptionType.badResponse:
+            showToast((error.response as Map<String,dynamic>)['message'],AppColor.movee);
             log(error.response.toString());
               networkExceptions = NetworkExceptions.handleResponse(error.response);
               break;
