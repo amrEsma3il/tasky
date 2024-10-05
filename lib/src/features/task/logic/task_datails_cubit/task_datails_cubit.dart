@@ -26,7 +26,7 @@ dataState.when(success: (task) {
    Get.toNamed(AppRouteName.taskDetails,parameters: {"task":jsonEncode(task.toJson())});
     emit(SuccessState(task: task));
 }, failure: (networkExceptions) {
-//  showToast( NetworkExceptions.getErrorMessage(networkExceptions),AppColor.softMovee);
+ showToast( NetworkExceptions.getErrorMessage(networkExceptions),AppColor.softMovee);
 },);
   }
 }

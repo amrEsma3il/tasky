@@ -47,7 +47,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       },
       failure: (networkExceptions) {
 
-        // showToast(NetworkExceptions.getErrorMessage(networkExceptions), Colors.white24);
+        showToast(NetworkExceptions.getErrorMessage(networkExceptions), Colors.white24);
       },
     );
     } else{showToast("at least one field not valid", AppColor.softMovee);}
