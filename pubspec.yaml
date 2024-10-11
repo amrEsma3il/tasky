@@ -66,10 +66,12 @@ dev_dependencies:
   flutter_launcher_icons: ^0.14.0
 
 flutter_launcher_icons:
-  android: "ic_launcher"
+  android: true
   ios: true
-  image_path: "assets/images/ic_launcher.png"
-  min_sdk_android: 21 
+  image_path: "assets/images/app_image.png"
+  adaptive_icon_background: "#5f33e1"
+  adaptive_icon_foreground: "assets/images/app_image.png"
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
